@@ -1,0 +1,7 @@
+COAMNDOS XML
+
+DTD
+
+ELEMENTOS MIXTOS
+
+<!ELEMENT marvel (#PCDATA | pokemon)*>

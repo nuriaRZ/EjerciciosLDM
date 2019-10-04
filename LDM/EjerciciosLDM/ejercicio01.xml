@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE placasbase [
+    <!ELEMENT placasbase (microprocesador, memoria, modelo, fabricante)>
+    <!ELEMENT microprocesador (#PCDATA)>
+    <!ELEMENT memoria (#PCDATA)>
+    <!ELEMENT modelo (#PCDATA)>
+    <!ELEMENT fabricante (Intel | Asus)>
+    <!ELEMENT Intel EMPTY>
+    <!ELEMENT Asus EMPTY>
+]>
+
+
+<placasbase>
+    <microprocesador>i7-9700k</microprocesador>
+    <memoria>64GB</memoria>
+    <modelo>Asus Prime </modelo>
+    <fabricante><Intel/></fabricante>
+</placasbase>

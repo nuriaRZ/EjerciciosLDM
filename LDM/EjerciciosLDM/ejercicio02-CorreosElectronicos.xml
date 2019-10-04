@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE correosElectronicos [
+  <!ELEMENT correosElectronicos (correoElectronico+)>
+  <!ELEMENT correoElectronico (destinatario+ | asunto | cuerpo | adjuntos)*>  
+  <!ELEMENT destinatario (direccion | tipo)*> 
+  <!ELEMENT direccion (#PCDATA)>
+  <!ELEMENT tipo (para | cc | cco)>
+  <!ELEMENT para EMPTY>
+  <!ELEMENT cc EMPTY>
+  <!ELEMENT cco EMPTY>
+  <!ELEMENT asunto (#PCDATA)>
+  <!ELEMENT cuerpo (#PCDATA)>
+  <!ELEMENT adjuntos (adjunto*)>
+  <!ELEMENT adjunto (nombre, mime-type, longitud)>
+  <!ELEMENT nombre (#PCDATA)>
+  <!ELEMENT mime-type (#PCDATA)>
+  <!ELEMENT longitud (#PCDATA)>
+]>
+
+
+<correosElectronicos>
+    <correoElectronico>
+          <destinatario>
+              <direccion>rafa@rafa.com</direccion>
+                  <tipo><para/></tipo>      
+         </destinatario>
+         <asunto>fhbvoufbvfl</asunto>
+         <cuerpo> kjdfkjr dejfo9rf</cuerpo>
+         <adjuntos>
+             <adjunto>
+                 <nombre>firmaelectronica</nombre>
+                 <mime-type></mime-type>
+                 <longitud></longitud>
+
+             </adjunto>
+         </adjuntos>      
+    </correoElectronico>          
+
+          
+
+
+   
+    <correoElectronico>
+            <destinatario>
+                <direccion>jesus@jesus.com</direccion>
+                    <tipo><cc/></tipo>      
+            </destinatario>         
+    </correoElectronico>           
+  
+             
+  
+  
+     
+    <correoElectronico>
+            <destinatario>
+                <direccion>irene@irene.com</direccion>
+                    <tipo><cco/></tipo>    
+            </destinatario>       
+    </correoElectronico>          
+  
+             
+</correosElectronicos>  
+  
+      
+  
+
+
+
+

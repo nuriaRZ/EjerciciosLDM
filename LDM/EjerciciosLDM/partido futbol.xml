@@ -1,0 +1,7 @@
+<partido>
+    <equipo name="local">
+        <gol_local result="1"> 
+    <equipo name="visitante">
+        <gol_visit result="0"/> 
+    <marcador=gol_local"-"gol_visit/>
+</partido>

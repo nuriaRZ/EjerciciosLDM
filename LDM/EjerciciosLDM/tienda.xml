@@ -1,0 +1,16 @@
+<tienda>
+    <horario> De L-S de 10:00-14:00 y de 14:00-21:30
+    <articulos>
+        <articulo name="ordenador"/>
+            <precio moneda="euro"> 300€ </precio>
+        <articulo name="raton"/>
+           <precio moneda="euro"> 60€ </precio> 
+           <colores color="negro"/>
+           <descuento valor="15%"/>
+        <articulo name= "router 4 antenas"/>
+            <precio moneda="euro"> 57€ </precio>
+        <articulo name="proyector"/>
+            <precio moneda="euro"> 250€ </precio>
+        <artiulo name="monitor"/>
+            <precio moneda="euro"> 250€ </precio>         
+</tienda>
