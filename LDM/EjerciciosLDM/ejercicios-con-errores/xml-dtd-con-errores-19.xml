@@ -4,4 +4,4 @@
   <!ATTLIST persona nombre CDATA #IMPLIED>
 ]>
 
-<persona nombre="Maria" />
+<persona nombre="03141592E" />

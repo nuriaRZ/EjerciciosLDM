@@ -15,5 +15,5 @@
   <jugador nombre="Diego Armando Maradona" codigo="Maradona" />
   <jugador nombre="Johan Cruyff" codigo="Cruyff" />
   <equipo nombre="Società Sportiva Calcio Napoli" jugadores="Maradona" />
-  <equipo nombre="Futbol Club Barcelona" jugadores="Cruyff" />
+  <equipo nombre="Futbol Club Barcelona" jugadores="ads ean" />
 </futbol>

@@ -1,0 +1,5 @@
+<!ELEMENT concesionario (modelo_coche*,)>
+<!ATTLIST factura n_fac ID #REQUIRED>
+<!ELEMENT modelo_coche (nombre,dir,poblacion,provincia,cif,telefono,fax)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT dir (#PCDATA)>
