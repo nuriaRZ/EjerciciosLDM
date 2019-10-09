@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concesionario SYSTEM "ejercicio31.dtd">
 <concesionario>
-    <modelo_coche>
-        
+    <modelo_coche id_ModeloCoche="mc556">
+        <descripcion>No disponible</descripcion>  
     </modelo_coche>
+
+    <modelo_coche id_ModeloCoche="mc555" id_RefModelo="mc556 mc444">
+        <descripcion>
+          <tipo_motor id_ModeloCoche="mc556">Este modelo tiene un motor 1.998cc 16v. de cuatro cilindros,</tipo_motor>
+          <potencia>que desarrolla una potencia de 128 CV.</potencia>  
+          <consumo_medio>Dispone de cambio manual ... el consumo medio de este monovolumen es 11 a los 100 km.</consumo_medio>
+          <precio>El precio base es de 2.225.000.</precio>
+        </descripcion>
+    </modelo_coche>
+
+    <modelo_coche id_ModeloCoche="mc557">
+        <descripcion>No disponible</descripcion>  
+    </modelo_coche>
+    
+    <modelo_coche id_ModeloCoche="mc154">
+        <descripcion>No disponible</descripcion>  
+    </modelo_coche>
+
+    <modelo_coche id_ModeloCoche="mc444" id_RefModelo="mc555 mc154">
+        <descripcion>
+              <tipo_motor id_ModeloCoche="mc556">Este modelo tiene un motor 2.000cc 16v. de cuatro cilindros</tipo_motor>
+              <potencia>con 128 CV.</potencia>  
+              <consumo_medio>Dispone de cambio manual ... el consumo medio de este monovolumen es 11 a los 100 km.</consumo_medio>
+              <precio>El precio base es de 2.500.000.</precio>
+        </descripcion>
+    </modelo_coche>    
 
 </concesionario>

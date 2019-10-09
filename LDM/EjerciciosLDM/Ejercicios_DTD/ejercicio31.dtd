@@ -1,5 +1,10 @@
-<!ELEMENT concesionario (modelo_coche*,)>
-<!ATTLIST factura n_fac ID #REQUIRED>
-<!ELEMENT modelo_coche (nombre,dir,poblacion,provincia,cif,telefono,fax)>
-<!ELEMENT nombre (#PCDATA)>
-<!ELEMENT dir (#PCDATA)>
+<!ELEMENT concesionario (modelo_coche*)>
+<!ELEMENT modelo_coche (descripcion)*>
+<!ATTLIST modelo_coche id_ModeloCoche ID #REQUIRED
+                        id_RefModelo IDREFS #IMPLIED>
+<!ELEMENT descripcion (#PCDATA| tipo_motor | potencia | consumo_medio| precio)*>
+<!ELEMENT tipo_motor (#PCDATA)>
+<!ATTLIST tipo_motor id_ModeloCoche IDREF #REQUIRED>
+<!ELEMENT potencia (#PCDATA)>
+<!ELEMENT consumo_medio (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
