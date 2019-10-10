@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE videoclub SYSTEM "ejercicio_entidad.dtd">
+%caracteristicaPelicula;
+<videoclub>
+    <pelicula id_pelicula="a1" nombre="Joker" categoria="ficcion"/>
+
+    
+
+</videoclub>
