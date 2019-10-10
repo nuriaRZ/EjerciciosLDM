@@ -4,5 +4,6 @@
 <!ENTITY % caracteristicaPelicula "<!ATTLIST  pelicula 
                                     nombre CDATA #REQUIRED
                                     categoria (accion|romantica|ficcion) #REQUIRED
-                                    id_pelicula ID #REQUIRED">
+                                    id_pelicula ID #REQUIRED>">
 
+                                    
