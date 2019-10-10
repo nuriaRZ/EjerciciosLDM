@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE videoclub SYSTEM "ejercicio_entidad.dtd">
-%caracteristicaPelicula;
-
 
 <videoclub>
      
-      
-
+    <pelicula  nombre="Lo imposible" id_pelicula="a1" categoria="accion" >
+        Esta pelicula es &real;
+    </pelicula>
+    <pelicula  nombre="Joker" id_pelicula="a2" categoria="ficcion" ></pelicula>
 </videoclub>
