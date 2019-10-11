@@ -7,8 +7,8 @@
     <poblacion cod_postal="28043">Madrid</poblacion> 
     <provincia>Madrid</provincia> 
     <cif>Q-9876543</cif> 
-    <telefono/>
-    <fax/> 
+    <telefono num_telf="917776688"/>
+    <fax num_fax="917776699"/> 
   </datos_empresa> 
   <datos_cliente n_cli="c879"> 
     <nombre>Darío, Bueno Gutiérrez</nombre> 

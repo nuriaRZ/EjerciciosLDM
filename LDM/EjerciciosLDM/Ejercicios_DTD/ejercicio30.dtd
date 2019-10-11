@@ -14,10 +14,10 @@
 <!ELEMENT datos_cliente (nombre, dir_env, poblacion, provincia)>
 <!ATTLIST datos_cliente n_cli ID #REQUIRED>
 <!ELEMENT dir_env (#PCDATA)>
-<!ELEMENT datos_factura (fecha, linea*, base, cuota_iva, total)>
+<!ELEMENT datos_factura (fecha, linea+, base, cuota_iva, total)>
 <!ATTLIST datos_factura n_ped ID #REQUIRED
                          iva NMTOKEN #REQUIRED
-                         f_pago (efectivo|tarjeta|pago) #REQUIRED
+                         f_pago (efectivo|tarjeta|plazo) #REQUIRED
                          moneda (euro) #REQUIRED>
 <!ELEMENT fecha (#PCDATA)>
 <!ELEMENT linea (ref,desc,cant,precio,importe)>
