@@ -1,3 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE LosSimpsons SYSTEM "LosSimpsons.dtd">
+<!DOCTYPE LosSimpsons SYSTEM "ejercicio_LosSimpsons.dtd" >
 
+<LosSimpsons >
+    <personaje  nombre="Homer" categoria="protagonista" color="amarillo" familia="Simpsons"/>
+     <parentesco casado="Marge"/>
+    <personaje  nombre="Marge" categoria="protagonista" color="amarillo" familia="Simpsons"/>
+        <parentesco casado="Homer"/>    
+            
+        
+    <personaje  nombre="Lisa" categoria="protagonista" color="amarillo" familia="Simpsons"/>
+        <parentesco hijo="Marge Homer" />
+    <personaje  nombre="Bart" categoria="protagonista" color="amarillo" familia="Simpsons">
+        <parentesco hijo="Marge Homer" />
+        <aficiones>
+            <TV>La serie favorita de Bart es &Rasca;</TV>
+            <skate>fdsnx</skate>
+            <tirachinas>gtd5d</tirachinas>
+        </aficiones>
+    </personaje>
+    
+</LosSimpsons>

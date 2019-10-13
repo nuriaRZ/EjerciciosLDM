@@ -1,0 +1,18 @@
+<!ELEMENT LosSimpsons (personaje+)>
+<!ELEMENT personaje (#PCDATA | aficiones | parentesco)*>
+<!ELEMENT aficiones (TV?, (skate|bici) , tirachinas?)>
+<!ELEMENT TV (#PCDATA)>
+<!ELEMENT skate (#PCDATA)>
+<!ELEMENT bici (#PCDATA)>
+<!ELEMENT tirachinas (#PCDATA)>
+<!ENTITY % atributosPersonajes "nombre ID #REQUIRED">
+<!ATTLIST personaje %atributosPersonajes; categoria (protagonista | secundario) #REQUIRED
+                                color CDATA #FIXED "amarillo"
+                                familia CDATA #IMPLIED>
+                                  
+<!ENTITY Rasca "Rasca y Pica">
+<!ELEMENT parentesco EMPTY>
+<!ATTLIST parentesco casado IDREF #IMPLIED
+                     hijo IDREFS #IMPLIED>
+
+                                            
