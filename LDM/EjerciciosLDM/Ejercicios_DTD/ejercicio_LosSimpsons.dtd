@@ -1,15 +1,20 @@
-<!ELEMENT LosSimpsons (personaje+)>
-<!ELEMENT personaje (#PCDATA | aficiones | parentesco)*>
-<!ELEMENT aficiones (TV?, (skate|bici) , tirachinas?)>
-<!ELEMENT TV (#PCDATA)>
-<!ELEMENT skate (#PCDATA)>
-<!ELEMENT bici (#PCDATA)>
-<!ELEMENT tirachinas (#PCDATA)>
-<!ENTITY % atributosPersonajes "nombre ID #REQUIRED">
-<!ATTLIST personaje %atributosPersonajes; categoria (protagonista | secundario) #REQUIRED
-                                color CDATA #FIXED "amarillo"
-                                familia CDATA #IMPLIED>
-                                  
+<!ELEMENT springfield (personajes , temporadas+)>
+<!ATTLIST springfield estado CDATA  #FIXED "Utah"> 
+<!ELEMENT personajes ( ninio | adulto)*>
+<!ELEMENT ninio (#PCDATA|parentesco)*>
+<!ELEMENT adulto (#PCDATA|parentesco)*>
+<!ELEMENT temporadas (#PCDATA|temporada)*>
+<!ELEMENT temporada EMPTY>
+<!ATTLIST temporada numero ID #IMPLIED
+                     fecha CDATA #IMPLIED>
+
+
+<!ENTITY % atributosPersonajes "nombre ID #REQUIRED
+                                categoria (protagonista | secundario) #REQUIRED   
+                                familia CDATA #IMPLIED">
+<!ATTLIST adulto %atributosPersonajes;> 
+<!ATTLIST ninio %atributosPersonajes;> 
+                                
 <!ENTITY Rasca "Rasca y Pica">
 <!ELEMENT parentesco EMPTY>
 <!ATTLIST parentesco casado IDREF #IMPLIED

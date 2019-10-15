@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE LosSimpsons SYSTEM "ejercicio_LosSimpsons.dtd" >
+<!DOCTYPE springfield SYSTEM "ejercicio_LosSimpsons.dtd" >
 
-<LosSimpsons >
-    <personaje  nombre="Homer" categoria="protagonista" color="amarillo" familia="Simpsons"/>
-     <parentesco casado="Marge"/>
-    <personaje  nombre="Marge" categoria="protagonista" color="amarillo" familia="Simpsons"/>
+<springfield estado="Utah">
+    
+    <personajes>
+        <adulto  nombre="Homer" categoria="protagonista"  familia="Simpsons"/>
+        <parentesco casado="Marge"/>
+        
+    <adulto nombre="Marge" categoria="protagonista"></adulto>  nombre="Marge" categoria="protagonista"  familia="Simpsons"/>
         <parentesco casado="Homer"/>    
             
         
-    <personaje  nombre="Lisa" categoria="protagonista" color="amarillo" familia="Simpsons"/>
+    <ninio  nombre="Lisa" categoria="protagonista"  familia="Simpsons"/>
         <parentesco hijo="Marge Homer" />
-    <personaje  nombre="Bart" categoria="protagonista" color="amarillo" familia="Simpsons">
+    <ninio nombre="" categoria="protagonista"></ninio>  nombre="Bart" categoria="protagonista"  familia="Simpsons">
         <parentesco hijo="Marge Homer" />
-        <aficiones>
-            <TV>La serie favorita de Bart es &Rasca;</TV>
-            <skate>fdsnx</skate>
-            <tirachinas>gtd5d</tirachinas>
-        </aficiones>
-    </personaje>
+       
+        
+    </personajes>
+
+    <temporadas>30 Temporadas
+        <temporada numero="a1" fecha="15/02"/>
+    </temporadas>    
+
+        
     
-</LosSimpsons>
+    
+</springfield>
