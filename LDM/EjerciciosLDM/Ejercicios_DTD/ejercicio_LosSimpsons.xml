@@ -4,23 +4,28 @@
 <springfield estado="Utah">
     
     <personajes>
-        <adulto  nombre="Homer" categoria="protagonista"  familia="Simpsons"/>
-        <parentesco casado="Marge"/>
         
-    <adulto nombre="Marge" categoria="protagonista"></adulto>  nombre="Marge" categoria="protagonista"  familia="Simpsons"/>
-        <parentesco casado="Homer"/>    
-            
+       <adultos> 
+
+        <adulto  nombre="Homer" categoria="protagonista" casado="Marge" />
+                  
+        <adulto nombre="Marge" categoria="protagonista" casado="Homer"/>  
+          
+        </adultos>   
         
-    <ninio  nombre="Lisa" categoria="protagonista"  familia="Simpsons"/>
-        <parentesco hijo="Marge Homer" />
-    <ninio nombre="" categoria="protagonista"></ninio>  nombre="Bart" categoria="protagonista"  familia="Simpsons">
-        <parentesco hijo="Marge Homer" />
-       
-        
+        <ninios>
+
+        <ninio  nombre="Lisa" categoria="protagonista" padres="Homer Marge" />
+          
+        <ninio nombre="Bart" categoria="protagonista" padres="Homer Marge"/>  
+                
+        </ninios>
+
     </personajes>
 
-    <temporadas>30 Temporadas
-        <temporada numero="a1" fecha="15/02"/>
+
+    <temporadas>30 Temporadas de &creador;
+        <temporada numero="a1" fecha="15/02/1989"/>
     </temporadas>    
 
         

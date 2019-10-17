@@ -1,23 +1,18 @@
-<!ELEMENT springfield (personajes , temporadas+)>
-<!ATTLIST springfield estado CDATA  #FIXED "Utah"> 
-<!ELEMENT personajes ( ninio | adulto)*>
-<!ELEMENT ninio (#PCDATA|parentesco)*>
-<!ELEMENT adulto (#PCDATA|parentesco)*>
+<!ELEMENT springfield (personajes+, temporadas?)>
+<!ATTLIST springfield estado CDATA #FIXED "Utah">
+<!ELEMENT personajes (adultos, ninios)>
+<!ELEMENT adultos (adulto*)>
+<!ELEMENT adulto EMPTY>
+<!ELEMENT ninios (ninio*)>
+<!ELEMENT ninio EMPTY>
+<!ENTITY % caracteristicaPersonaje "nombre ID #REQUIRED
+                                    categoria (protagonista | secundario) #IMPLIED">
+<!ATTLIST adulto %caracteristicaPersonaje;
+                    casado IDREF #IMPLIED >
+<!ATTLIST ninio %caracteristicaPersonaje;
+                    padres IDREFS #IMPLIED >
 <!ELEMENT temporadas (#PCDATA|temporada)*>
-<!ELEMENT temporada EMPTY>
-<!ATTLIST temporada numero ID #IMPLIED
-                     fecha CDATA #IMPLIED>
-
-
-<!ENTITY % atributosPersonajes "nombre ID #REQUIRED
-                                categoria (protagonista | secundario) #REQUIRED   
-                                familia CDATA #IMPLIED">
-<!ATTLIST adulto %atributosPersonajes;> 
-<!ATTLIST ninio %atributosPersonajes;> 
-                                
-<!ENTITY Rasca "Rasca y Pica">
-<!ELEMENT parentesco EMPTY>
-<!ATTLIST parentesco casado IDREF #IMPLIED
-                     hijo IDREFS #IMPLIED>
-
-                                            
+<!ELEMENT temporada (#PCDATA)>
+<!ATTLIST temporada numero ID #REQUIRED
+                    fecha CDATA #IMPLIED>
+<!ENTITY creador "Matt Groening">                  

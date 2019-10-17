@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE marvel SYSTEM "ejercicio_vengadores.dtd">
+
+<marvel saga="Vengadores">
+
+    <personajes>
+           
+        <heroes>
+            
+            <heroe nombre="Thor" poder="martillo" procedencia="extraterrestre" peliculas="a1 a3"/>
+            
+            <heroe nombre="IronMan" poder="robot" procedencia="terrestre" peliculas="a1 a3"/>
+              
+            <heroe nombre="ViudaNegra" poder="" procedencia="terrestre" peliculas="a1 a3"/>
+            
+        </heroes>
+
+        <villanos>
+
+            <villano nombre="Thanos" poder="" procedencia="extraterrestre" />
+            <villano nombre="Ultron" poder="" procedencia="extraterrestre"/>
+            <villano nombre="Loki" poder="" procedencia="extraterrestre"/>
+
+        </villanos>
+
+    </personajes>
+
+    <peliculas> Todas estas peliculas fueron creadas por el gran &Lee;
+        <pelicula id="a1" nombre="Infinity War" fecha="12/08/19"/>
+
+        <pelicula id="a3" nombre="Infinity War" fecha="12/08/19"/>
+
+        <pelicula id="a5" nombre="Infinity War" fecha="12/08/19"/>
+
+    </peliculas>
+
+</marvel>

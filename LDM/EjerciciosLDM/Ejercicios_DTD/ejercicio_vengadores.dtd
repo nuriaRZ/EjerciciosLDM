@@ -1,0 +1,20 @@
+<!ELEMENT marvel (personajes*, peliculas?)>
+<!ATTLIST marvel saga CDATA #FIXED "Vengadores">
+<!ELEMENT personajes (heroes, villanos)*>
+<!ELEMENT heroes (heroe+)>
+<!ELEMENT villanos (villano+)>
+<!ELEMENT heroe EMPTY>                               
+<!ELEMENT villano EMPTY>
+<!ENTITY % caracteristicaPersonaje "nombre ID #REQUIRED
+                                   poder CDATA #IMPLIED
+                                   procedencia (terrestre | extraterrestre) #IMPLIED
+                                   peliculas IDREFS #IMPLIED">
+<!ATTLIST heroe %caracteristicaPersonaje;> 
+<!ATTLIST villano %caracteristicaPersonaje;>
+<!ELEMENT peliculas (#PCDATA| pelicula)*>
+<!ELEMENT pelicula (#PCDATA)>
+<!ATTLIST pelicula id ID #REQUIRED
+                    nombre NMTOKENS #IMPLIED
+                    fecha CDATA #IMPLIED>
+
+<!ENTITY Lee "Stan Lee">
