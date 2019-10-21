@@ -5,7 +5,7 @@
 
     <clientes veteranos="x666 y999" > Los clientes veteranos tendran &oferta;
         <cliente DNI="x666" nombre="Tupac" apellidos="Shakur" telefono="554477" domicilio="The East Side"/>
-        <cliente DNI="y999" nombre="Notorius" apellidos="BigPoppa" telefono="554477" domicilio="The East Side"/>
+        <cliente DNI="y999" nombre="Notorius" apellidos="BigPoppa" telefono="664877" domicilio="The West Side"/>
 
         
     </clientes>
@@ -16,10 +16,9 @@
     </tarifas>
 
     <contratos>
-
         <contrato cliente="x666" tarifa="t1"/>
-
-
+        <dar_baja cliente="x666" tarifa="t1" permanencia="si"/>
+        
     </contratos>
 
 
