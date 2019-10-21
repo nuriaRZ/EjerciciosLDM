@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE papeleria SYSTEM "ejercicio_papeleria.dtd">
 
-<papeleria>
-<articulos>
-    <boligrafo codigo="a1" color="azul" punta="fina" precio="1,00€"/>
-    <cuadernos>
-        <pequenios codigo="c1" precio="2,00€"/>
-        <grandes codigo="c2" tipo="rayas" precio="3,00€"/>
-           
-    </cuadernos>
- <!--   <regla codigo="r1" precio="1,50€"/>
-    <lapiz codigo="l1" precio="1,50€"/>-->
+<papeleria nombre="Papelitos">
 
-</articulos>
+    <articulos>
+        <boligrafo codigo="b1" color="azul" precio="1,00"/>
+        <cuaderno codigo="c1" tamanio="grande" tipo="rayas" precio="2.00"/>
+        <regla codigo="r2" pack="3" precio="2.00"/>
+        <lapiz codigo="l1" precio="0.50"/>
+        
+    </articulos>
 
-<ventas>
-    &agradecimiento; Siguiente cliente.
-    <venta n_ticket="t1" productos_vendidos="c2 a1" fecha="15/02"/>
-        <tipo_cuaderno tamanio="c2"/>
-</ventas>
+    <vendedor codigo="v1"/>
+
+    <ventas> &agradecimiento; Siguiente cliente.
+        <venta num_venta="w1" productos_vend="c1 b1" vendedor="v1" fecha="12/01" />
+    </ventas>
 
 </papeleria>

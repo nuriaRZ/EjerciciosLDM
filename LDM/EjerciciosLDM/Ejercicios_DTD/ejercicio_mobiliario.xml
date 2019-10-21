@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urbanizacion SYSTEM "ejercicio_mobiliario.dtd">
+
+<urbanizacion localidad="Lucena">
+
+    <mobiliario>
+
+        <zona codigo="z1">
+            <farolas cantidad="50" color="gris" tipo_bombilla="LED"  estado="mejorable"/>
+            <papeleras cantidad="3" color="gris" cod_Obj_roto="p1" estado="roto"/>
+            <bancos cantidad="5" color="madera" cod_Obj_roto="b3" estado="roto"/>
+            <arboles cantidad="3" tipo="limonero" estado="bien"/>
+            
+        </zona>
+
+        <zona codigo="z2">
+                <farolas cantidad="10" color="gris" tipo_bombilla="LED" cod_Obj_roto="f5" estado="roto"/>
+                <papeleras cantidad="1" color="gris" estado="bien"/>
+                <bancos cantidad="3" color="madera" cod_Obj_roto="b2" estado="roto"/>
+         </zona>
+
+
+    </mobiliario> 
+
+    <desperfectos>Se haran los cambios necesarios para &cuidados;
+
+        <recuento zona="z1" desperfectos="p1 b3"/>
+        <recuento zona="z2" desperfectos="f5 b2"/>
+        
+    </desperfectos>
+   
+    
+
+</urbanizacion>

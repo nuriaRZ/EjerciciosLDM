@@ -1,0 +1,30 @@
+<!ELEMENT urbanizacion (mobiliario, desperfectos)>
+<!ATTLIST urbanizacion localidad CDATA #FIXED "Lucena">
+<!ELEMENT mobiliario (zona+)>
+<!ELEMENT zona (farolas,papeleras,bancos,(arboles|arreates)?)*>
+<!ATTLIST zona codigo ID #REQUIRED>
+<!ENTITY % atributosMobiliario "cantidad CDATA #IMPLIED
+                                color CDATA #IMPLIED
+                                estado (mejorable|bien|roto) #REQUIRED
+                                cod_Obj_roto ID #IMPLIED">
+<!ENTITY % atributosPlantas "cantidad CDATA #IMPLIED
+                            tipo CDATA #IMPLIED
+                            estado (mejorable|bien|roto) #REQUIRED
+                            cod_Planta_dañada ID #IMPLIED">                               
+<!ELEMENT farolas EMPTY>
+<!ATTLIST farolas %atributosMobiliario;
+                tipo_bombilla (LED | FLEX | TEX) #IMPLIED >
+<!ELEMENT papeleras EMPTY>
+<!ATTLIST papeleras %atributosMobiliario;> 
+<!ELEMENT bancos EMPTY>
+<!ATTLIST bancos %atributosMobiliario;> 
+<!ELEMENT arboles EMPTY>
+<!ATTLIST arboles %atributosPlantas;>
+<!ELEMENT arreates EMPTY>
+<!ATTLIST arreates %atributosPlantas;>
+<!ELEMENT desperfectos (#PCDATA|recuento)*>
+<!ENTITY cuidados "cuidar nuestro pueblo">
+<!ELEMENT recuento EMPTY>
+<!ATTLIST recuento zona IDREF #REQUIRED
+                   desperfectos IDREFS #REQUIRED>
+                       

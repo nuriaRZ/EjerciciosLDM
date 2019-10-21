@@ -1,0 +1,21 @@
+<!ELEMENT empresa (clientes | tarifas | contratos)*>
+<!ATTLIST empresa nombre CDATA #FIXED "iberdrola">
+<!ELEMENT clientes (#PCDATA | cliente)*>
+<!ATTLIST clientes veteranos IDREFS #REQUIRED>
+<!ENTITY oferta "ofertas especiales">
+<!ENTITY % atributosCliente "DNI ID #REQUIRED
+                            nombre CDATA #REQUIRED
+                            apellidos CDATA #IMPLIED
+                            telefono CDATA #IMPLIED
+                            domicilio CDATA #IMPLIED">
+<!ELEMENT cliente EMPTY>
+<!ATTLIST cliente %atributosCliente;>
+<!ELEMENT tarifas (tarifa+)>
+<!ELEMENT tarifa EMPTY>
+<!ATTLIST tarifa codigo ID #REQUIRED
+                precio CDATA #REQUIRED
+                potencia (3.30|4.00|4.50|5.00) #REQUIRED>
+<!ELEMENT contratos (contrato+)>
+<!ELEMENT contrato (#PCDATA)>
+<!ATTLIST contrato cliente IDREF #REQUIRED
+                    tarifa IDREF #REQUIRED>                

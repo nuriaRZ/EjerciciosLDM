@@ -1,33 +1,29 @@
-<!ELEMENT papeleria (articulos, ventas*)>
-<!ELEMENT articulos (boligrafo, cuadernos, regla)>
-<!ELEMENT cuadernos (pequenios|grandes)*>
+<!ELEMENT papeleria (articulos+, vendedor?, ventas)>
+<!ATTLIST papeleria nombre CDATA #FIXED "Papelitos">
+<!ELEMENT articulos (boligrafo, cuaderno, regla, (lapiz|portaminas?))*>
 <!ELEMENT boligrafo EMPTY>
+
+<!ENTITY % atributosArticulo "codigo ID #REQUIRED
+                             precio CDATA #REQUIRED">
+<!ATTLIST boligrafo %atributosArticulo; 
+                             color (azul|negro|rojo) #IMPLIED>                             
+<!ELEMENT cuaderno (#PCDATA)>
+<!ATTLIST cuaderno %atributosArticulo;
+                    tamanio (grande|pequenio) #IMPLIED
+                    tipo (rayas|cuadros) #IMPLIED>
+<!ELEMENT regla (#PCDATA)>
+<!ATTLIST regla %atributosArticulo;
+                pack (3|4|5) #IMPLIED>
 <!ELEMENT lapiz EMPTY>
-<!ATTLIST lapiz %caracteristicasArticulos;>
+<!ATTLIST lapiz %atributosArticulo;>
 <!ELEMENT portaminas EMPTY>
-<!ATTLIST portaminas %caractesticasArticulos;>
-<!ELEMENT regla EMPTY>
-<!ATTLIST regla %caracteristicasArticulos;>
-<!ENTITY % caractesticasArticulos "codigo ID #REQUIRED
-                                    precio CDATA #FIXED "1,50€"">
-<!ATTLIST boligrafo codigo ID #REQUIRED
-                    color (azul|negro|rojo) #IMPLIED
-                    punta (fina|gruesa) #IMPLIED
-                    precio CDATA #FIXED "1,00€"> 
-<!ENTITY % atributosCuaderno "codigo ID #REQUIRED
-                              color CDATA #IMPLIED
-                              tipo (rayas|cuadros) #REQUIRED ">
-<!ELEMENT pequenios (#PCDATA)>
-<!ATTLIST pequenios %atributosCuaderno;
-                    precio CDATA #FIXED "2,00€" >
-<!ELEMENT grandes (#PCDATA)>
-<!ATTLIST grandes %atributosCuaderno;
-                    precio CDATA #FIXED "3,00€" >
-<!ELEMENT ventas (#PCDATA | venta)*>
-<!ENTITY agradecimiento "Gracias por su compra.">
-<!ELEMENT venta (tipo_cuaderno?)>
-<!ELEMENT tipo_cuaderno (#PCDATA)>
-<!ATTLIST tipo_cuaderno tamanio IDREF #REQUIRED>
-<!ATTLIST venta n_ticket ID #REQUIRED
-                productos_vendidos IDREFS #REQUIRED
-                fecha CDATA #IMPLIED>
+<!ATTLIST portaminas %atributosArticulo;> 
+<!ELEMENT vendedor EMPTY>
+<!ATTLIST vendedor codigo ID #REQUIRED>
+<!ELEMENT ventas (#PCDATA|venta)*>
+<!ENTITY agradecimiento "Gracias por su compra">
+<!ELEMENT venta EMPTY>
+<!ATTLIST venta num_venta ID #REQUIRED
+                productos_vend IDREFS #REQUIRED
+                vendedor IDREF #IMPLIED
+                fecha CDATA #IMPLIED>               

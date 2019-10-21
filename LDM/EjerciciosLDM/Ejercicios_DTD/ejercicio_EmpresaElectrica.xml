@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE empresa SYSTEM "ejercicio_EmpresaElectrica.dtd">
+
+<empresa nombre="iberdrola">
+
+    <clientes veteranos="x666 y999" > Los clientes veteranos tendran &oferta;
+        <cliente DNI="x666" nombre="Tupac" apellidos="Shakur" telefono="554477" domicilio="The East Side"/>
+        <cliente DNI="y999" nombre="Notorius" apellidos="BigPoppa" telefono="554477" domicilio="The East Side"/>
+
+        
+    </clientes>
+    <tarifas>
+        <tarifa codigo="t1" precio="36,00" potencia="3.30"/>
+        <tarifa codigo="t2" precio="25,00" potencia="3.30"/>
+
+    </tarifas>
+
+    <contratos>
+
+        <contrato cliente="x666" tarifa="t1"/>
+
+
+    </contratos>
+
+
+
+
+</empresa>
