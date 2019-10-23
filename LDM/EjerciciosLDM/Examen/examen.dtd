@@ -1,0 +1,28 @@
+<!NOTATION JPG SYSTEM "image/jpeg">
+<!NOTATION PNG SYSTEM "image/png">
+<!ELEMENT casa (#PCDATA| zona| recuento_electrodomesticos)*>
+<!ATTLIST casa duenia CDATA #FIXED "Nuria">
+<!ENTITY localidad "Lucena">
+<!ELEMENT zona (electrodomestico+)>
+<!ATTLIST zona lugar ID #REQUIRED
+                planta (1|2|3) #REQUIRED>
+<!ELEMENT electrodomestico EMPTY>
+<!ATTLIST electrodomestico nombre ID #REQUIRED
+                           precio CDATA #IMPLIED
+                           descripcion CDATA #IMPLIED
+                           tienda NMTOKEN #IMPLIED
+                           imagen NOTATION (JPG|PNG) #IMPLIED>
+<!ELEMENT recuento_electrodomesticos (recuento*, (electrodomestico_roto|electrodomestico_nuevo)?)>                           
+<!ENTITY % atributosRecuentos "planta (1|2|3) #REQUIRED
+                               lugar IDREF #REQUIRED">
+<!ELEMENT recuento EMPTY>
+<!ATTLIST recuento %atributosRecuentos;
+            electrodomesticos IDREFS #REQUIRED>           
+<!ELEMENT electrodomestico_roto EMPTY>
+<!ATTLIST electrodomestico_roto %atributosRecuentos;
+            electrodomesticos IDREFS #REQUIRED> 
+<!ELEMENT electrodomestico_nuevo EMPTY>
+<!ATTLIST electrodomestico_nuevo %atributosRecuentos;
+            electrodomestico ID #REQUIRED
+            imagen NOTATION (JPG|PNG) #IMPLIED> 
+

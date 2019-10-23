@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casa SYSTEM "examen.dtd" >
+
+<casa duenia="Nuria"> Yo vivo en &localidad;
+    <zona planta="2" lugar="banio">
+        
+            <electrodomestico  nombre="lavadora" precio="300,00" tienda="Carrefour"/>
+            <electrodomestico  nombre="secadora" precio="350,00"/>
+        
+    </zona>
+
+    <zona planta="1" lugar="cocina">
+        
+                <electrodomestico nombre="lavaplatos" precio="200,00" imagen="PNG"/>
+                <electrodomestico nombre="televisor" precio="450,90" descripcion="televisor 3D"/>   
+        
+
+    </zona>
+
+    <recuento_electrodomesticos>
+        <recuento planta="2" lugar="banio" electrodomesticos="lavadora secadora" />
+        <electrodomestico_nuevo planta="1" lugar="cocina" electrodomestico="frigorifico" imagen="JPG"/>
+        
+    </recuento_electrodomesticos>
+    
+
+</casa>    
