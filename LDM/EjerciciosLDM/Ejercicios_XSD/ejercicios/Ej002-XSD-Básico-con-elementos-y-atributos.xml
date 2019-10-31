@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<marvel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Ej002-XSD.xsd" 
+creador="Stan Lee">
+
+    <superheroe nombre="Hulk">
+        <poder>Fuerza</poder>
+    </superheroe>
+    <superheroe nombre="Iron Man">
+        <color>Rojo y plateado</color>
+    </superheroe>
+    <superheroe nombre="Thor">
+        <procedencia>Asdgar</procedencia>
+    </superheroe>
+</marvel>

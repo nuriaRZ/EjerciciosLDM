@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<marvel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Ej001-XSD.xsd">
+
+    <superheroe>Hulk</superheroe>
+    <superheroe>Thor</superheroe>
+    <superheroe>Iron Man</superheroe>
+    <supervillano>Cráneo rojo</supervillano>
+    <supervillano>Thanos</supervillano>
+</marvel>
