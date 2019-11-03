@@ -4,10 +4,27 @@
 
   <xs:complexType name="tipoMarvel">
     <xs:sequence>
-      <xs:element name="superheroe" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="superheroe" type="atributosSuperheroe" maxOccurs="unbounded"/>
       
     </xs:sequence>
   </xs:complexType>
-  <xs:attribute name="creador" type="xs:string"></xs:attribute>
-  <xs:attribute name="nombre" type=""></xs:attribute>
+  <xs:attribute name="creador" type="xs:string"/>
+  <xs:attribute name="nombre" type="xs:string"/>
+
+
+<xs:complexType name="atributosSuperheroe">
+  <xs:sequence>
+    <xs:element name="poder" type="texto"/>
+    <xs:element name="color" type="texto"/>
+    <xs:element name="procedencia" type="texto"/>
+
+  </xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="texto">
+  <xs:restriction base="xs:string">
+    <xs:minLength value="1"/>
+  </xs:restriction>
+</xs:simpleType>
+
 </xs:schema>
