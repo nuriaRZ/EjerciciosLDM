@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="factura" type="tipoFactura" />
+  <xs:complexType name="tipoFactura">
+    <xs:sequence>
+      <xs:element name="datos_empresa" type="tipoEmpresa"/>
+      <xs:element name="datos_cliente"/>
+      <xs:element name="datos_factura"/>
+    </xs:sequence>
+    <xs:attribute name="n_fac" type="textoNoVacio"/>
+  </xs:complexType>
+
+  <xs:complexType name="tipoEmpresa">
+    <xs:sequence>
+      <xs:element name="nombre" type="textoNoVacio"/>
+      <xs:element name="dir" type="textoNoVacio"/>
+      <xs:element name="poblacion" type="textoNoVacio"/>
+      <xs:element name="provincia" type="textoNoVacio"/>
+      <xs:element name="cif" type="textoNoVacio"/>
+      <xs:element name="telefono" type="textoNoVacio"/>
+      <xs:element name="fax" type="textoNoVacio"/>
+    </xs:sequence>
+    <xs:attribute name="cod_postal" type="xs:integer"/>
+    <xs:attribute name="valor" type="textoNoVacio"/>
+  </xs:complexType>
+
+  <xs:simpleType name="textoNoVacio">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".+"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
