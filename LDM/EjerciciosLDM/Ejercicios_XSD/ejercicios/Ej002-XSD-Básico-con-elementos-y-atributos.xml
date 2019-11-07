@@ -6,7 +6,7 @@ creador="Stan Lee">
         <poder>Fuerza</poder>
     </superheroe>
     <superheroe nombre="Iron Man">
-        <color>Rojo y plateado</color>
+        <color>rojo plateado</color>
     </superheroe>
     <superheroe nombre="Thor">
         <procedencia>Asdgar</procedencia>

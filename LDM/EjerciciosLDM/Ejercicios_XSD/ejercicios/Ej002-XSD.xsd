@@ -6,24 +6,56 @@
     <xs:sequence>
       <xs:element name="superheroe" type="atributosSuperheroe" maxOccurs="unbounded"/>  
     </xs:sequence>
-    <xs:attribute name="creador" type="texto"/>   
+    <xs:attribute name="creador" type="tipoCreador"/>   
   </xs:complexType>
 
 
 
 <xs:complexType name="atributosSuperheroe">
   <xs:choice>
-    <xs:element name="poder" type="texto"/>
-    <xs:element name="color" type="texto"/>
-    <xs:element name="procedencia" type="texto"/>
+    <xs:element name="poder" type="tipoPoder" />
+    <xs:element name="color" type="tipoColor"/>
+    <xs:element name="procedencia" />
   </xs:choice>
-  <xs:attribute name="nombre" type="texto"/>
+  <xs:attribute name="nombre" type="tipoNombreSuperheroe" />
 </xs:complexType>
 
-<xs:simpleType name="texto">
+<xs:simpleType name="tipoCreador">
   <xs:restriction base="xs:string">
-    <xs:minLength value="1"/>
+    <xs:pattern value="\w+\s\w+"/>
   </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoNombreSuperheroe">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[A-Z][a-z]+\s?[A-Z]?[a-z]*"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoPoder">
+  <xs:restriction base="xs:string">
+    <xs:maxLength value="150"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="listaColor1">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="rojo"/>
+    <xs:enumeration value="verde"/>
+    <xs:enumeration value="azul"/>    
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="listaColor2">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="blanco"/>
+    <xs:enumeration value="negro"/>
+    <xs:enumeration value="plateado"/>    
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoColor">
+  <xs:union memberTypes="listaColor1 listaColor2"/> 
 </xs:simpleType>
 
 </xs:schema>
