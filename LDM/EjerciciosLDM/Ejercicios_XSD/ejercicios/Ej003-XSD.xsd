@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="factura" type="tipoFactura" />
+<!-- DEFINICION ELEMENTOS DE FACTURA-->  
   <xs:complexType name="tipoFactura">
     <xs:sequence>
       <xs:element name="datos_empresa" type="tipoEmpresa"/>
-      <xs:element name="datos_cliente"/>
-      <xs:element name="datos_factura"/>
+      <xs:element name="datos_cliente" type="tipoCliente"/>
+      <xs:element name="datos_factura" type="tipoDatosFactura"/>
     </xs:sequence>
-    <xs:attribute name="n_fac" type="textoNoVacio"/>
+    <xs:attribute name="n_fac" type="tipoID"/>
   </xs:complexType>
-
+<!-- SUBELEMENTOS DEL ELEMENTO DATOS_EMPRESA-->
   <xs:complexType name="tipoEmpresa">
     <xs:sequence>
       <xs:element name="nombre" type="textoNoVacio"/>
@@ -19,19 +20,91 @@
       <xs:element name="cif" type="textoNoVacio"/>
       <xs:element name="telefono" type="atributos"/>
       <xs:element name="fax" type="atributos"/>
+    </xs:sequence>    
+  </xs:complexType>
+ <!-- ATRIBUTOS DE SUBELEMENTOS EMPRESA-->  
+  <xs:complexType name="atributos">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="cod_postal" type="xs:positiveInteger" />
+        <xs:attribute name="valor" type="xs:positiveInteger" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!-- SUBELEMENTOS DEL ELEMENTO DATOS_CLIENTE-->
+  <xs:complexType name="tipoCliente">
+    <xs:sequence>
+      <xs:element name="nombre" type="textoNoVacio"/>
+      <xs:element name="dir_env" type="textoNoVacio"/>
+      <xs:element name="poblacion" type="atributos"/>
+      <xs:element name="provincia" type="textoNoVacio"/>
     </xs:sequence>
-    
+    <xs:attribute name="n_cli" type="tipoID"/>    
   </xs:complexType>
-
-  <xs:complexType name="atributos">    
-    <xs:attribute name="cod_postal" type="xs:integer"/>
-    <xs:attribute name="valor" type="textoNoVacio"/>
-  </xs:complexType>
-
+  <!-- SUBELEMENTOS DEL ELEMENTO DATOS_FACTURA-->
+  <xs:complexType name="tipoDatosFactura">
+      <xs:sequence>
+        <xs:element name="fecha" type="xs:date"/>
+        <xs:element name="linea" type="tipoLinea" maxOccurs="unbounded"/>        
+        <xs:element name="base" type="tipoDecimal"/>
+        <xs:element name="cuota_iva" type="tipoDecimal"/>
+        <xs:element name="total" type="tipoDecimal"/>
+      </xs:sequence>
+      <xs:attribute name="n_ped" type="tipoID"/>
+      <xs:attribute name="iva" type="xs:positiveInteger"/>
+      <xs:attribute name="f_pago" type="tipoPago"/>
+      <xs:attribute name="moneda" type="tipoMoneda"/>
+    </xs:complexType>
+<!-- SUBELEMENTOS DEL SUBELEMENTO LINEA-->
+  <xs:complexType name="tipoLinea">
+    <xs:sequence>
+      <xs:element name="ref" type="tipoRef"/>
+      <xs:element name="desc" type="textoNoVacio"/>
+      <xs:element name="cant" type="xs:positiveInteger"/>
+      <xs:element name="precio" type="xs:positiveInteger"/>
+      <xs:element name="importe" type="tipoDecimal"/>
+    </xs:sequence>
+  </xs:complexType>    
+<!-- TIPO DE CONTENIDO DE ELEMENTOS EN GENERAL-->
   <xs:simpleType name="textoNoVacio">
     <xs:restriction base="xs:string">
-      <xs:pattern value=".+"></xs:pattern>
+      <xs:pattern value=".+"/>
     </xs:restriction>
   </xs:simpleType>
+  <!-- n_fac y n_Cli debe empezar por 1letra min y contener 3 num-->
+  <xs:simpleType name="tipoID">
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[a-z]\d{3}"/>
+      </xs:restriction>
+    </xs:simpleType>
+<!--LISTA FORMA DE PAGO -->
+  <xs:simpleType name="tipoPago">
+    <xs:list itemType="formaPago"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="formaPago">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="efectivo"/>
+      <xs:enumeration value="tarjeta"/>      
+    </xs:restriction>
+  </xs:simpleType>
+   <!-- DEFINICION LONGITUD REF --> 
+   <xs:simpleType name="tipoRef">
+      <xs:restriction base="xs:string"> 
+        <xs:maxLength value="10"/>
+      </xs:restriction>
+    </xs:simpleType>
+ <!-- DEFINICION VALOR MONEDA --> 
+  <xs:simpleType name="tipoMoneda">
+      <xs:restriction base="xs:string"> 
+        <xs:enumeration value="euro"/>
+      </xs:restriction>
+    </xs:simpleType>
+<!-- POSICION DE DECIMALES PERMITIDOS-->  
+  <xs:simpleType name="tipoDecimal">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>           
+    </xs:restriction>
+  </xs:simpleType> 
 
 </xs:schema>
