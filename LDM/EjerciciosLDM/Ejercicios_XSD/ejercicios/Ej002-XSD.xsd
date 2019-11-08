@@ -32,7 +32,7 @@
 
   <xs:simpleType name="tipoNombreSuperheroe">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[A-Z][a-z]+\s?[A-Z]?[a-z]*"/>
+      <xs:pattern value="[A-Z].*"/>
     </xs:restriction>
   </xs:simpleType>
 

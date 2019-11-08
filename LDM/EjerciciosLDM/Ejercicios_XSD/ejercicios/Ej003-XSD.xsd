@@ -11,7 +11,7 @@
     <xs:attribute name="n_fac" type="tipoID"/>
   </xs:complexType>
 <!-- SUBELEMENTOS DEL ELEMENTO DATOS_EMPRESA-->
-  <xs:complexType name="tipoEmpresa">
+  <xs:complexType name="tipoEmpresa" mixed="true">
     <xs:sequence>
       <xs:element name="nombre" type="textoNoVacio"/>
       <xs:element name="dir" type="textoNoVacio"/>
@@ -23,7 +23,7 @@
     </xs:sequence>    
   </xs:complexType>
  <!-- ATRIBUTOS DE SUBELEMENTOS EMPRESA-->  
-  <xs:complexType name="atributos">
+  <xs:complexType name="atributos" mixed="true">
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="cod_postal" type="xs:positiveInteger" />
@@ -32,7 +32,7 @@
     </xs:simpleContent>
   </xs:complexType>
   <!-- SUBELEMENTOS DEL ELEMENTO DATOS_CLIENTE-->
-  <xs:complexType name="tipoCliente">
+  <xs:complexType name="tipoCliente" mixed="true">
     <xs:sequence>
       <xs:element name="nombre" type="textoNoVacio"/>
       <xs:element name="dir_env" type="textoNoVacio"/>
@@ -42,7 +42,7 @@
     <xs:attribute name="n_cli" type="tipoID"/>    
   </xs:complexType>
   <!-- SUBELEMENTOS DEL ELEMENTO DATOS_FACTURA-->
-  <xs:complexType name="tipoDatosFactura">
+  <xs:complexType name="tipoDatosFactura" mixed="true">
       <xs:sequence>
         <xs:element name="fecha" type="xs:date"/>
         <xs:element name="linea" type="tipoLinea" maxOccurs="unbounded"/>        
