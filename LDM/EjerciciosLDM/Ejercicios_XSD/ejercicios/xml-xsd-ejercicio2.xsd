@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="vehiculos"  type="tipoVehiculos"/>
+  <xs:complexType name="tipoVehiculos">
+    <xs:sequence>
+      <xs:element name="vehiculo" type="tipoVehiculo"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE VEHICULO-->
+  <xs:complexType name="tipoVehiculo" mixed="true">
+    <xs:sequence>
+      <xs:element name="nombre" type="tipoTexto"/>
+      <xs:element name="modelo" type="tipoTexto"/>
+      <xs:element name="fabricacion" type="tipoFabricacion"/>
+      <xs:element name="modificaciones" type="tipoModificaciones"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE FABRICACION-->
+  <xs:complexType name="tipoFabricacion">
+    <xs:sequence>
+      <xs:element name="inicio" type="tipoTemporalidad"/>
+      <xs:element name="fin" type="tipoTemporalidad"/>      
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE INICIO Y FIN-->
+  <xs:complexType name="tipoTemporalidad" mixed="true">
+    <xs:sequence>
+      <xs:element name="dia" type="xs:positiveInteger"/>
+      <xs:element name="mes" type="tipoMes"/> 
+      <xs:element name="anyo" type="xs:gYear"/>      
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tipoMes">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][a-z]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ELEMENTOS DE MODIFICACIONES-->
+  <xs:complexType name="tipoModificaciones">
+    <xs:sequence>
+      <xs:element name="modificacion" type="tipoTexto" maxOccurs="unbounded"/>            
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- TEXTO NO VACIO-->
+  <xs:simpleType name="tipoTexto">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

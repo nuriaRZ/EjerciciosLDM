@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="alumno" type="tipoAlumno"/>
+  <!-- ELEMENTOS DEL ALUMNO -->
+  <xs:complexType name="tipoAlumno">
+    <xs:sequence>
+      <xs:element name="nombre" type="tipoNombre"/>
+      <xs:element name="direccion" type="tipoDireccion"/>
+      <xs:element name="telefono" type="tipoTelf"/>
+    </xs:sequence>
+    <xs:attribute name="dni" type="tipoDNI"/>
+  </xs:complexType>
+
+   <!-- ELEMENTOS DE LA DIRECCION -->
+   <xs:complexType name="tipoDireccion" mixed="true">
+    <xs:sequence>
+      <xs:element name="calle" type="tipoCalle"/>
+      <xs:element name="numero" type="tipoNum"/>
+      <xs:element name="ciudad" type="tipoNombres"/>
+      <xs:element name="provincia" type="tipoNombres"/>
+    </xs:sequence>
+    <xs:attribute name="dni"/>
+  </xs:complexType>
+
+  <!-- FORMA DEL DNI -->
+  <xs:simpleType name="tipoDNI">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{8}[A-Z]"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- NOMBRE EMPEZAR CON MAYUSCULA Y MIN DOS PALABRAS -->
+  <xs:simpleType name="tipoNombre">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][a-z]+ [A-Z][a-z]+.*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- CALLE DEBE EMPEZAR CON MAYUSCULA MIN DE 15CAR -->
+  <xs:simpleType name="tipoCalle">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][a-z]+.*"/>
+      <xs:minLength value="15"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- NUMERO DEBE CONTENER AL MENOS UN NUMERO -->
+  <xs:simpleType name="tipoNum">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:pattern value="[0-9]{1,}"/>      
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- CIUDAD DEBE EMPEZAR CON MAYUSCULA-->
+  <xs:simpleType name="tipoNombres">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][a-z]+.*"/>     
+    </xs:restriction>
+  </xs:simpleType>
+
+    <!-- NUMERO DEBE CONTENER AL MENOS UN NUMERO -->
+    <xs:simpleType name="tipoTelf">
+      <xs:restriction base="xs:positiveInteger">
+        <xs:pattern value="[0-9]{9}"/>      
+      </xs:restriction>
+    </xs:simpleType>
+
+
+</xs:schema>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<concesionario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="xml-xsd-ejercicio4.xsd">
+  <modeloCoche idModeloCoche="mc556">No disponible</modeloCoche>
+  <modeloCoche idModeloCoche="mc555" idsRefModeloCoche="mc556 mc444">Este modelo tiene un motor 1.998cc 16v. de cuatro cilindros, que desarrolla una potencia de 128 CV. Dispone de cambio manual ... el consumo medio de este monovolumen es 11 a los 100 km. El precio base es de2.225.000.
+    <modeloMotor idModeloCoche="mc556"></modeloMotor>
+  </modeloCoche>
+  <modeloCoche idModeloCoche="mc557">No disponible</modeloCoche>
+  <modeloCoche idModeloCoche="mc154">No disponible</modeloCoche>
+  <modeloCoche idModeloCoche="mc444" idsRefModeloCoche="mc555 mc154">Este modelo tiene un motor 2.000cc 16v. de cuatro cilindros con 128 CV. Dispone de cambio manual ... el consumo medio de este monovolumen es 11 a los 100 km. El precio base es de 2.500.000.
+    <modeloMotor idModeloCoche="mc556"></modeloMotor>
+  </modeloCoche>
+</concesionario>

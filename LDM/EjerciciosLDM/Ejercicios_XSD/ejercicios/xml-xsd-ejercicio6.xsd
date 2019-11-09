@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="usuario" type="tipoUsuario" />
+  <xs:complexType name="tipoUsuario">
+    <xs:sequence>
+      <xs:element name="ultimasSesiones" type="tipoUltimasSesiones"/>
+      <xs:element name="marcadores" type="tipoMarcadores"/>
+      <xs:element name="mensajes" type="tipoMensajes"/>      
+    </xs:sequence>
+    <xs:attribute name="id" type="tipoID"/>
+  </xs:complexType>
+
+  <!-- El valor del usuario debe terminar en la cadena "gmail.com" o "gmail.es" -->
+  <xs:simpleType name="tipoID">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".+@(gmail.com|gmail.es)"></xs:pattern>    
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ELEMENTOS DE ULTIMAS SESIONES -->
+  <xs:complexType name="tipoUltimasSesiones">
+      <xs:sequence>
+        <xs:element name="sesion" type="tipoSesion" maxOccurs="unbounded"/>      
+      </xs:sequence>      
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE SESION -->
+  <xs:complexType name="tipoSesion" mixed="true">
+      <xs:sequence>
+        <xs:element name="dispositivo" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="ip" type="tipoIp"/>
+            <xs:attribute name="navegador" type="xs:string"/>
+            <xs:attribute name="NAT" type="tipoNat"/>
+          </xs:complexType>
+        </xs:element>      
+      </xs:sequence>
+      <xs:attribute name="fecha" type="xs:date"/>
+      <xs:attribute name="hora" type="tipoHora"/>      
+  </xs:complexType>
+<!-- el atributo hora debe tomar una hora válida en formato 24 H-->
+  <xs:simpleType name="tipoHora">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{2}:\d{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- El atributo ip debe ser una dirección ip más o menos válida-->
+  <xs:simpleType name="tipoIp">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{3}.\d{1,3}.\d{1,3}.\d{1,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--el atributo NAT será "no/si" -->
+  <xs:simpleType name="tipoNat">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="si|no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ELEMENTO DE MARCADORES -->
+  <xs:complexType name="tipoMarcadores" mixed="true">         
+    <xs:sequence>
+      <xs:element name="marcador" maxOccurs="unbounded"  >
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="tipoMarcador">
+              <xs:attribute name="nombre"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>               
+      </xs:element>
+    </xs:sequence>      
+  </xs:complexType>
+
+  <!-- El atributo nombre será de texto libre, pero el contenido del elemento marcador debe comenzar por "http://" o "https://" -->
+  <xs:simpleType name="tipoMarcador">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(http://|https://).*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+<!-- ELEMENTOS DE MENSAJES-->
+  <xs:complexType name="tipoMensajes">
+    <xs:sequence>
+      <xs:element name="mails">
+        <xs:complexType>
+          <xs:sequence><xs:element name="mail" type="tipoMail"/></xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hangout">
+        <xs:complexType>
+          <xs:sequence><xs:element name="mensaje" type="tipoMensaje"/></xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE MAILS-->
+  <xs:complexType name="tipoMail">
+    <xs:sequence>
+      <xs:element name="asunto"/>
+      <xs:element name="cuerpo"/>
+    </xs:sequence>
+    <xs:attribute name="de" type="tipoCorreo"/>
+  </xs:complexType>
+
+  <!-- El atributo "de" debe tomar un valor de email correcto -->
+  <xs:simpleType name="tipoCorreo">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".+@.+(.com|.es)"/>    
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ELEMENTOS DE MENSAJE-->
+  <xs:complexType name="tipoMensaje">
+    <xs:sequence>
+      <xs:element name="asunto"/>
+      <xs:element name="cuerpo"/>
+    </xs:sequence>    
+  </xs:complexType>
+
+  <!-- Entre los elementos "mail" y "mensaje" debes hacer una derivación de tipos de datos complejos -->
+
+</xs:schema>
