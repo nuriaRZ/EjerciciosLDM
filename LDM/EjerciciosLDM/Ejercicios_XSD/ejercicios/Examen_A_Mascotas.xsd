@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="tiendaMascotas" type="tipoTiendaMascota"/>
+
+  <xs:complexType name="tipoTiendaMascota" mixed="true">
+      <xs:sequence>
+          <xs:element name="reptiles" >
+              <xs:complexType mixed="true"><xs:sequence><xs:element name="reptil" maxOccurs="unbounded" type="tipoReptil"/></xs:sequence></xs:complexType>
+          </xs:element>
+          <xs:element name="mamiferos">
+                <xs:complexType mixed="true"><xs:sequence><xs:element name="mamifero" maxOccurs="unbounded" type="tipoMamifero"/></xs:sequence></xs:complexType>
+          </xs:element>    
+          <xs:element name="unidadesMedida" />
+          <xs:element name="direccion" />
+          <xs:element name="clientes" />
+      </xs:sequence>
+      <xs:attribute name="nombre"/>
+  </xs:complexType>
+
+  <xs:complexType name="tipoReptil" mixed="true">
+      <xs:sequence>
+          <xs:element name="peso"/>
+          <xs:element name="longitud"/> 
+          <xs:element name="edad" minOccurs="0" maxOccurs="1"/>    
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoMamifero" mixed="true">
+        <xs:sequence>
+            <xs:element name="nombre"/>
+            <xs:element name="raza">
+                <xs:complexType><xs:sequence><xs:element name="raza" type="tipoRaza"/></xs:sequence></xs:complexType>
+            </xs:element> 
+            <xs:element name="descripcion" minOccurs="0" maxOccurs="1"/>    
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoRaza">
+        <xs:choice>
+            <xs:element name="perro"/>
+            <xs:element name="orca"/>
+            <xs:element name="delfin"/>
+        </xs:choice>
+    </xs:complexType>
+
+
+
+
+</xs:schema>
