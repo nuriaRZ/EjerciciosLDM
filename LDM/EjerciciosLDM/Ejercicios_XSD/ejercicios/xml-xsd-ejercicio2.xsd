@@ -3,7 +3,7 @@
   <xs:element name="vehiculos"  type="tipoVehiculos"/>
   <xs:complexType name="tipoVehiculos">
     <xs:sequence>
-      <xs:element name="vehiculo" type="tipoVehiculo"/>
+      <xs:element name="vehiculo" type="tipoVehiculo" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 

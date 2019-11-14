@@ -6,7 +6,7 @@
     <xs:sequence>
       <xs:element name="nombre" type="tipoNombre"/>
       <xs:element name="direccion" type="tipoDireccion"/>
-      <xs:element name="telefono" type="tipoTelf"/>
+      <xs:element name="telefono" type="xs:string"/>
     </xs:sequence>
     <xs:attribute name="dni" type="tipoDNI"/>
   </xs:complexType>
@@ -57,13 +57,4 @@
       <xs:pattern value="[A-Z][a-z]+.*"/>     
     </xs:restriction>
   </xs:simpleType>
-
-    <!-- NUMERO DEBE CONTENER AL MENOS UN NUMERO -->
-    <xs:simpleType name="tipoTelf">
-      <xs:restriction base="xs:positiveInteger">
-        <xs:pattern value="[0-9]{9}"/>      
-      </xs:restriction>
-    </xs:simpleType>
-
-
 </xs:schema>

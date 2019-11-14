@@ -3,11 +3,11 @@
   <xs:element name="factura" type="tipoFactura" />
 <!-- DEFINICION ELEMENTOS DE FACTURA-->  
   <xs:complexType name="tipoFactura">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="datos_empresa" type="tipoEmpresa"/>
       <xs:element name="datos_cliente" type="tipoCliente"/>
       <xs:element name="datos_factura" type="tipoDatosFactura"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="n_fac" type="tipoID"/>
   </xs:complexType>
 <!-- SUBELEMENTOS DEL ELEMENTO DATOS_EMPRESA-->

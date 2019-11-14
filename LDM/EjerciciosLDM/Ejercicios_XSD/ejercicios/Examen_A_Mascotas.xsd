@@ -65,12 +65,6 @@ números y finalmente un carácter ‘)’.-->
   <xs:complexType name="tipoMedida" mixed="true">
       <xs:attribute name="unidadMedida"/>
   </xs:complexType>
-
-
-
-
-
-
     
 
 
