@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="youtube" type="tipoYoutube"/>
+  <!-- ELEMENTOS DE YOUTUBE-->
+  <xs:complexType name="tipoYoutube">
+    <xs:all>
+      <xs:element name="videos" type="tipoVideos"/>
+      <xs:element name="publicidad" type="xs:string"/>
+      <xs:element name="idiomasDisponibles" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE VIDEOS-->
+  <xs:complexType name="tipoVideos" mixed="true">
+    <xs:all>
+      <xs:element name="video" type="tipoVideo"/>
+    </xs:all>
+  </xs:complexType>
+
+<!-- ELEMENTOS DE VIDEO-->
+  <xs:complexType name="tipoVideo" mixed="true">
+    <xs:sequence>
+      <xs:element name="url"/>
+      <xs:element name="visualizaciones"/>
+      <xs:element name="comentarios">
+        <xs:complexType>
+          <xs:sequence>
+          <xs:element name="buenos"/>
+          <xs:element name="malos"/>
+        </xs:sequence>
+      </xs:complexType>
+      </xs:element>
+      <xs:element name="subscriptores">
+        <xs:complexType><xs:sequence><xs:element name="subscriptor" type="tipoSubscriptor"/></xs:sequence></xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE SUBSCRIPTOR-->
+  <xs:complexType name="tipoSubscriptor">
+    <xs:sequence>
+      <xs:element name="fechaSubscripcion">
+        <xs:complexType>
+          <xs:attribute name="dia" type="xs:integer"/>
+          <xs:attribute name="mes" type="xs:string"/>
+          <xs:attribute name="anyo" type="tipoAnyo"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="comentarios">
+          <xs:complexType>
+              <xs:attribute name="cantidad" type="xs:integer"/>
+          </xs:complexType>    
+      </xs:element>
+      <xs:element name="correoElectronico" type="tipoCorreo"/>
+      <xs:element name="idioma"/>
+    </xs:sequence>
+    <xs:attribute name="codigo" type="tipoCodigoSubs"/>
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE CORREO ELECTRONICO-->
+  <xs:complexType name="tipoCorreo">
+    <xs:sequence>
+      <xs:element name="usuario"/>
+      <xs:element name="servidor">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="gmail"/>
+            <xs:element name="hotmail"/>
+            <xs:element name="yahoo"/>
+        </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="completo" />
+  </xs:complexType>
+
+ <!--VALIDACION CODIGO SUBS-->
+ <xs:simpleType name="tipoCodigoSubs">
+   <xs:restriction base="xs:string">
+     <xs:pattern value="[0-9]{2}-[\[][A-Z]{2}[\]]-[0-9]{2}"/>
+   </xs:restriction>
+ </xs:simpleType>
+
+ <!--VALIDACION ANYO-->
+ <xs:simpleType name="tipoAnyo">
+   <xs:restriction base="xs:integer">
+     <xs:enumeration value=""></xs:enumeration>
+
+   
+ </xs:simpleType>
+
+
+</xs:schema>
+
+
+
+

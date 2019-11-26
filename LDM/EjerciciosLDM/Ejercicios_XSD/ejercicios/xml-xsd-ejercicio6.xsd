@@ -2,11 +2,11 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="usuario" type="tipoUsuario" />
   <xs:complexType name="tipoUsuario">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="ultimasSesiones" type="tipoUltimasSesiones"/>
       <xs:element name="marcadores" type="tipoMarcadores"/>
       <xs:element name="mensajes" type="tipoMensajes"/>      
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="id" type="tipoID"/>
   </xs:complexType>
 

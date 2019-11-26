@@ -18,10 +18,10 @@
 
     <!-- ELEMENTOS DE TRAJE-->
     <xs:complexType name="tipoTraje">
-      <xs:sequence>
+      <xs:all>
         <xs:element name="creador"/>
         <xs:element name="colores" type="tipoColores"/>
-      </xs:sequence>      
+      </xs:all>      
     </xs:complexType>
 
     <!-- ELEMENTOS DE COLORES-->
