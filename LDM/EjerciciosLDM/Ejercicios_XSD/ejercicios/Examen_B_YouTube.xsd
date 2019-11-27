@@ -5,8 +5,8 @@
   <xs:complexType name="tipoYoutube">
     <xs:all>
       <xs:element name="videos" type="tipoVideos"/>
-      <xs:element name="publicidad" type="xs:string"/>
-      <xs:element name="idiomasDisponibles" type="xs:string"/>
+      <xs:element name="publicidad" type="tipoPublicidad"/>
+      <xs:element name="idiomasDisponibles" type="tipoIdiomasDisponibles"/>
     </xs:all>
   </xs:complexType>
 
@@ -21,11 +21,11 @@
   <xs:complexType name="tipoVideo" mixed="true">
     <xs:sequence>
       <xs:element name="url"/>
-      <xs:element name="visualizaciones"/>
+      <xs:element name="visualizaciones" type="tipoVisualizaciones"/>
       <xs:element name="comentarios">
         <xs:complexType>
           <xs:sequence>
-          <xs:element name="buenos"/>
+          <xs:element name="buenos" type="tipoVisualizacionesDerivado"/>
           <xs:element name="malos"/>
         </xs:sequence>
       </xs:complexType>
@@ -52,7 +52,7 @@
           </xs:complexType>    
       </xs:element>
       <xs:element name="correoElectronico" type="tipoCorreo"/>
-      <xs:element name="idioma"/>
+      <xs:element name="idioma" type="tipoIdioma"/>
     </xs:sequence>
     <xs:attribute name="codigo" type="tipoCodigoSubs"/>
   </xs:complexType>
@@ -83,11 +83,101 @@
 
  <!--VALIDACION ANYO-->
  <xs:simpleType name="tipoAnyo">
-   <xs:restriction base="xs:integer">
-     <xs:enumeration value=""></xs:enumeration>
-
-   
+   <xs:restriction base="xs:positiveInteger">
+     <xs:enumeration value="2015"/>
+     <xs:enumeration value="2016"/>
+     <xs:enumeration value="2017"/>
+     <xs:enumeration value="2018"/>
+   </xs:restriction>    
  </xs:simpleType>
+
+ <!--VALIDACION IDIOMA -->
+<xs:simpleType name="tipoIdioma">
+  <xs:union memberTypes="tipoIdiomaEspañol tipoIdiomaIngles"/>
+</xs:simpleType>
+
+ <xs:simpleType name="tipoIdiomaEspañol">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Español"/>
+    <xs:enumeration value="Ingles"/>
+    <xs:enumeration value="Frances"/>
+    <xs:enumeration value="Chino"/>
+    <xs:enumeration value="Koreano"/>
+  </xs:restriction>    
+</xs:simpleType>
+
+<xs:simpleType name="tipoIdiomaIngles">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Spanish"/>
+    <xs:enumeration value="English"/>
+    <xs:enumeration value="French"/>
+    <xs:enumeration value="Chinese"/>
+    <xs:enumeration value="Korean"/>
+  </xs:restriction>    
+</xs:simpleType>
+
+<!-- ELEMENTOS DE PUBLICIDAD -->
+<xs:complexType name="tipoPublicidad">
+  <xs:sequence>
+    <xs:element name="anuncio" type="tipoAnuncio"/>
+    <xs:element name="anuncioPatrocinado" type="tipoAnuncioPatrocinado"/>
+  </xs:sequence>
+</xs:complexType>
+
+<!-- DERIVACION DE TIPOS DE DATOS COMPLEJOS -->
+<xs:complexType name="tipoAnuncio" mixed="true">
+  <xs:sequence>
+    <xs:element name="empresa" type="xs:string"/>
+    <xs:element name="bannersPorMinuto" type="xs:positiveInteger"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoAnuncioPatrocinado">
+  <xs:complexContent mixed="true">
+    <xs:extension base="tipoAnuncio">
+      <xs:sequence>
+        <xs:element name="descuentoYouTuve" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="patrocinador" type="xs:string"/>
+    </xs:extension>    
+  </xs:complexContent>  
+</xs:complexType>
+
+<!-- VALIDACION DE IDIOMAS DISPONIBLES -->
+<xs:simpleType name="tipoIdiomasDisponibles">
+  <xs:list itemType="listaIdiomasDisponibles"/>
+</xs:simpleType>
+
+<xs:simpleType name="listaIdiomasDisponibles">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Francés"/>
+    <xs:enumeration value="Italiano"/>
+    <xs:enumeration value="Alemán"/>
+    <xs:enumeration value="Inglés"/>
+    <xs:enumeration value="Chinese"/>
+    <xs:enumeration value="Korean"/>
+    <xs:enumeration value="Japanese"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<!-- DERIVACION DE TIPOS DE DATOS SIMPLES -->
+<xs:simpleType name="tipoVisualizaciones">
+  <xs:restriction base="xs:integer">
+    <xs:minInclusive value="0"/>
+    <xs:maxInclusive value="100000000"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoVisualizacionesDerivado">
+  <xs:restriction base="tipoVisualizaciones">
+    <xs:maxInclusive value="200000"/>
+  </xs:restriction>
+</xs:simpleType>
+
+
+
+
+
 
 
 </xs:schema>
