@@ -64,15 +64,18 @@
       <xs:element name="servidor">
         <xs:complexType>
           <xs:choice>
-            <xs:element name="gmail"/>
-            <xs:element name="hotmail"/>
-            <xs:element name="yahoo"/>
+            <xs:element name="gmail" type="tipoVacio"/>
+            <xs:element name="hotmail" type="tipoVacio"/>
+            <xs:element name="yahoo" type="tipoVacio"/>
         </xs:choice>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
     <xs:attribute name="completo" />
   </xs:complexType>
+
+<!-- ELEMENTOS VACIOS -->
+  <xs:complexType name="tipoVacio"/>
 
  <!--VALIDACION CODIGO SUBS-->
  <xs:simpleType name="tipoCodigoSubs">
@@ -93,10 +96,10 @@
 
  <!--VALIDACION IDIOMA -->
 <xs:simpleType name="tipoIdioma">
-  <xs:union memberTypes="tipoIdiomaEspañol tipoIdiomaIngles"/>
+  <xs:union memberTypes="tipoIdiomaEspanol tipoIdiomaIngles"/>
 </xs:simpleType>
 
- <xs:simpleType name="tipoIdiomaEspañol">
+ <xs:simpleType name="tipoIdiomaEspanol">
   <xs:restriction base="xs:string">
     <xs:enumeration value="Español"/>
     <xs:enumeration value="Ingles"/>
@@ -119,8 +122,8 @@
 <!-- ELEMENTOS DE PUBLICIDAD -->
 <xs:complexType name="tipoPublicidad">
   <xs:sequence>
-    <xs:element name="anuncio" type="tipoAnuncio"/>
-    <xs:element name="anuncioPatrocinado" type="tipoAnuncioPatrocinado"/>
+    <xs:element name="anuncio" type="tipoAnuncio" maxOccurs="unbounded"/>
+    <xs:element name="anuncioPatrocinado" type="tipoAnuncioPatrocinado" maxOccurs="unbounded"/>
   </xs:sequence>
 </xs:complexType>
 
@@ -173,12 +176,6 @@
     <xs:maxInclusive value="200000"/>
   </xs:restriction>
 </xs:simpleType>
-
-
-
-
-
-
 
 </xs:schema>
 
