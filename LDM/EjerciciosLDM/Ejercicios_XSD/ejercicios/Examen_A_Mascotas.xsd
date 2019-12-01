@@ -3,35 +3,43 @@
   <xs:element name="tiendaMascotas" type="tipoTiendaMascota"/>
 <!--– Los elementos “/tiendaMascotas/mamiferos/mamifero/nombre” deben ser
 elementos vacíos. -->
-  <xs:complexType name="tipoTiendaMascota" >
+  <xs:complexType name="tipoTiendaMascota">
       <xs:sequence>
           <xs:element name="reptiles" >
               <xs:complexType mixed="true"><xs:sequence><xs:element name="reptil" maxOccurs="unbounded" type="tipoReptil"/></xs:sequence></xs:complexType>
           </xs:element>
           <xs:element name="mamiferos">
-                <xs:complexType mixed="true"><xs:sequence><xs:element name="mamifero" maxOccurs="unbounded" type="tipoMamifero">
-                    
+                <xs:complexType mixed="true"><xs:sequence><xs:element name="mamifero" maxOccurs="unbounded" type="tipoMamifero">                    
                 </xs:element></xs:sequence></xs:complexType>   
           </xs:element>    
-          <xs:element name="unidadesMedida" />
-          <xs:element name="direccion" />
-          <xs:element name="clientes" />
+          <xs:element name="unidadesMedida" type="tipoUnidadesMedida"/>
+          <xs:element name="direccion" type="tipoDireccion"/>
+          <xs:element name="clientes" >
+              <xs:complexType>
+                  <xs:sequence>
+                      <xs:element name="cliente" type="tipoClienteDerivado"/>
+                </xs:sequence>
+              </xs:complexType>
+          </xs:element>
       </xs:sequence>
       <xs:attribute name="nombre"/>
   </xs:complexType>
+
 <!-- ELEMENTOS DEL MAMIFERO-->
-
-
-    <xs:complexType name="tipoMamifero">
-        
+    <xs:complexType name="tipoMamifero" mixed="true">        
         <xs:sequence>
-                <xs:element name="nombre"><xs:complexType><xs:attribute name="valor"/></xs:complexType></xs:element>
+                <xs:element name="nombre"><xs:complexType><xs:attribute name="valor" type="tipoValor"/></xs:complexType></xs:element>
                 <xs:element name="raza" type="tipoRaza"/> 
                 <xs:element name="descripcion" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
-    
+    <!-- VALIDACION DE VALOR -->
+    <xs:simpleType name="tipoValor">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-z]{1,}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>    
 
 <!-- ELEMENTOS DE RAZA -->
     <xs:complexType name="tipoRaza">
@@ -42,29 +50,105 @@ elementos vacíos. -->
         </xs:choice>
     </xs:complexType>
 
- <!--   “/tiendaMascotas/mamiferos/mamifero” deben ser elementos de contenido mixto cuyo contenido texto debe
-cumplir con las normas siguientes: tres letras en mayúscula, un guión ‘-‘, un carácter paréntesis ‘(‘, cinco
-números y finalmente un carácter ‘)’.-->
-
-<xs:simpleType name="textoNoVacio">
-    <xs:restriction base="xs:string">
-        <xs:pattern value="[A-Z]{3}-([0-9]{5})"/>
-    </xs:restriction>
-</xs:simpleType>
-
  <!-- Los elementos “/tiendaMascotas/reptiles/reptil” deben ser elementos de
   contenido mixto.-->
   <xs:complexType name="tipoReptil" mixed="true">
-      <xs:sequence>
-          <xs:element name="peso" type="tipoMedida"/>
-          <xs:element name="longitud" type="tipoMedida"/> 
-          <xs:element name="edad" minOccurs="0" maxOccurs="1" type="tipoMedida"/>    
-      </xs:sequence>
+      <xs:all>
+          <xs:element name="peso" minOccurs="0" maxOccurs="1" type="tipoMixtoUnidadMedidaPeso"/>
+          <xs:element name="longitud" minOccurs="0" maxOccurs="1" type="tipoMixtoUnidadMedidaPeso"/> 
+          <xs:element name="edad" minOccurs="0" maxOccurs="1" type="tipoMixtoUnidadMedidaPeso"/>
+      </xs:all>
   </xs:complexType>
 
   <xs:complexType name="tipoMedida" mixed="true">
-      <xs:attribute name="unidadMedida"/>
+      <xs:attribute name="unidadMedida" type="tipoUnidadMedida"/>
   </xs:complexType>
+
+
+
+  <!--UNION VALORES DE UNIDAD DE MEDIDA -->
+  <xs:simpleType name="tipoUnidadMedida">
+      <xs:union memberTypes="tipoUnidadesMetros tipoUnidadesDias"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoUnidadesMetros">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="mm"/>
+          <xs:enumeration value="cm"/>
+          <xs:enumeration value="dm"/>
+          <xs:enumeration value="Kg"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoUnidadesDias">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="dias"/>
+        <xs:enumeration value="semanas"/>
+        <xs:enumeration value="meses"/>            
+    </xs:restriction>
+  </xs:simpleType>
+
+<!--UNION VALORES DE UNIDADES DE MEDIDA -->
+
+  <xs:simpleType name="tipoUnidadesMedida">
+      <xs:list itemType="tipoUnidades"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoUnidades">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="mm"/>
+        <xs:enumeration value="cm"/>
+        <xs:enumeration value="dm"/>
+        <xs:enumeration value="m"/>
+        <xs:enumeration value="kg"/>
+        <xs:enumeration value="dias"/>
+        <xs:enumeration value="semanas"/>
+        <xs:enumeration value="meses"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!--DERIVACION DE TIPOS DE DATOS SIMPLES -->
+<xs:complexType name="tipoMixtoUnidadMedidaPeso">
+        <xs:simpleContent>
+           <xs:extension base="tipoLongitud">
+             <xs:attribute name="unidadMedida" type="tipoUnidadMedida"/>
+           </xs:extension>
+        </xs:simpleContent>
+</xs:complexType>
+
+<xs:simpleType name="tipoLongitud">
+    <xs:restriction base="xs:integer">
+        <xs:minInclusive value="1"/>
+        <xs:maxInclusive value="800"/> 
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipoPeso">
+    <xs:restriction base="tipoLongitud">        
+        <xs:maxInclusive value="200"/> 
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- DERIVACION DE DATOS COMPLEJOS -->
+
+<!-- ELEMENTOS DE DIRECCION -->
+<xs:complexType name="tipoDireccion" mixed="true">
+    <xs:sequence>
+        <xs:element name="postal" type="xs:string"/>
+        <xs:element name="telefono" type="xs:string"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoClienteDerivado">
+    <xs:complexContent mixed="true">
+        <xs:extension base="tipoDireccion">
+            <xs:sequence>
+                <xs:element name="email" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="nombre"/>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
     
 
 
