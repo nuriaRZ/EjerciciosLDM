@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="youtube" type="tipoYoutube"/>
+<!--ELEMENTOS DE YOUTUBE -->
+  <xs:complexType name="tipoYoutube">
+      <xs:all>
+        <xs:element name="videos" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="video" type="tipoVideo"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="publicidad" type="tipoPublicidad" />
+        <xs:element name="idiomasDisponibles"/>
+      </xs:all>
+    </xs:complexType>
+
+    <!-- ELEMENTOS DE VIDEO -->
+    <xs:complexType name="tipoVideo" mixed="true">
+      <xs:sequence>
+        <xs:element name="url"/>
+        <xs:element name="visualizaciones"/>
+        <xs:element name="comentarios">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="buenos"/>
+              <xs:element name="malos"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="subscriptores" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="subscriptor" type="tipoSubscriptor"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <!-- ELEMENTOS DE SUBSCRIPTOR-->
+    <xs:complexType name="tipoSubscriptor">
+      <xs:sequence>
+        <xs:element name="fechaSubscripcion">
+          <xs:complexType>
+            <xs:attribute name="dia"/>
+            <xs:attribute name="mes"/>
+            <xs:attribute name="anyo"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="comentarios">
+          <xs:complexType>
+            <xs:attribute name="cantidad"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="correoElectronico">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="usuario"/>
+              <xs:element name="servidor" >
+                <xs:complexType>
+                  <xs:choice>
+                    <xs:element name="gmail"/>
+                    <xs:element name="yahoo"/>
+                    <xs:element name="hotmail"/>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="completo"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="idioma"/>
+      </xs:sequence>
+      <xs:attribute name="codigo"/>
+    </xs:complexType>
+
+    <!-- ELEMENTOS PUBLICIDAD -->
+    <xs:complexType name="tipoPublicidad">
+      <xs:sequence>
+        <xs:element name="anuncio" type="tipoAnuncioPrimitivo"/>
+        <xs:element name="anuncioPatrocinado" type="tipoAnuncioDerivado"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoAnuncioPrimitivo" mixed="true">
+      <xs:sequence>
+        <xs:element name="empresa"/>
+        <xs:element name="bannersPorMinuto"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoAnuncioDerivado">
+      <xs:complexContent mixed="true">
+        <xs:extension base="tipoAnuncioPrimitivo">
+          <xs:sequence>
+           <xs:element name="descuentoYouTube"/>          
+          </xs:sequence>
+        <xs:attribute name="patrocinador"/>
+        </xs:extension>
+      </xs:complexContent> 
+    </xs:complexType>
+
+
+
+
+</xs:schema>
