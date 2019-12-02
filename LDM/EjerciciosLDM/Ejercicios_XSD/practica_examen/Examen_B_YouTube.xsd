@@ -18,7 +18,7 @@
 
     <!-- ELEMENTOS DE VIDEO -->
     <xs:complexType name="tipoVideo" mixed="true">
-      <xs:sequence>
+      <xs:all>
         <xs:element name="url"/>
         <xs:element name="visualizaciones"/>
         <xs:element name="comentarios">
@@ -36,7 +36,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-      </xs:sequence>
+      </xs:all>
     </xs:complexType>
     <!-- ELEMENTOS DE SUBSCRIPTOR-->
     <xs:complexType name="tipoSubscriptor">
@@ -45,7 +45,7 @@
           <xs:complexType>
             <xs:attribute name="dia"/>
             <xs:attribute name="mes"/>
-            <xs:attribute name="anyo"/>
+            <xs:attribute name="anyo" type="tipoAnyo"/>
           </xs:complexType>
         </xs:element>
         <xs:element name="comentarios">
@@ -70,7 +70,7 @@
             <xs:attribute name="completo"/>
           </xs:complexType>
         </xs:element>
-        <xs:element name="idioma"/>
+        <xs:element name="idioma" type="unionIdiomas"/>
       </xs:sequence>
       <xs:attribute name="codigo"/>
     </xs:complexType>
@@ -100,6 +100,55 @@
         </xs:extension>
       </xs:complexContent> 
     </xs:complexType>
+
+    <!-- VALIDACION DE AÑO -->
+
+    <xs:simpleType name="tipoAnyo">
+      <xs:restriction base="xs:integer">
+        <xs:enumeration value="2015"/>
+        <xs:enumeration value="2016"/>
+        <xs:enumeration value="2017"/>
+        <xs:enumeration value="2018"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <!-- UNION DE IDIOMAS -->
+    <xs:simpleType name="unionIdiomas">
+      <xs:union memberTypes="idiomasEspanol idiomasIngles"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="idiomasEspanol">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Español"/>
+        <xs:enumeration value="Ingles"/>
+        <xs:enumeration value="Aleman"/>
+        <xs:enumeration value="Koreano"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="idiomasIngles">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Spanish"/>
+          <xs:enumeration value="English"/>
+          <xs:enumeration value="German"/>
+          <xs:enumeration value="Korean"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+     <!-- LISTA DE IDIOMAS DISPONIBLES --> 
+     <xs:simpleType name="listaIdiomas">
+       <xs:list></xs:list>
+     </xs:simpleType>
+
+     <xs:simpleType name="idiomasDisponibles">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Español"/>
+          <xs:enumeration value="Ingles"/>
+          <xs:enumeration value="Aleman"/>
+          <xs:enumeration value="Koreano"/>
+        </xs:restriction>
+      </xs:simpleType>
+
 
 
 
