@@ -12,7 +12,7 @@
           </xs:complexType>
         </xs:element>
         <xs:element name="publicidad" type="tipoPublicidad" />
-        <xs:element name="idiomasDisponibles"/>
+        <xs:element name="idiomasDisponibles" type="listaIdiomas"/>
       </xs:all>
     </xs:complexType>
 
@@ -20,11 +20,11 @@
     <xs:complexType name="tipoVideo" mixed="true">
       <xs:all>
         <xs:element name="url"/>
-        <xs:element name="visualizaciones"/>
+        <xs:element name="visualizaciones" type="tipoVisualizacionesPrimitivo"/>
         <xs:element name="comentarios">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="buenos"/>
+              <xs:element name="buenos" type="tipoDerivado"/>
               <xs:element name="malos"/>
             </xs:sequence>
           </xs:complexType>
@@ -72,7 +72,7 @@
         </xs:element>
         <xs:element name="idioma" type="unionIdiomas"/>
       </xs:sequence>
-      <xs:attribute name="codigo"/>
+      <xs:attribute name="codigo" type="tipoCodigo"/>
     </xs:complexType>
 
     <!-- ELEMENTOS PUBLICIDAD -->
@@ -137,15 +137,39 @@
 
      <!-- LISTA DE IDIOMAS DISPONIBLES --> 
      <xs:simpleType name="listaIdiomas">
-       <xs:list></xs:list>
+       <xs:list itemType="idiomasDisponibles"/>
      </xs:simpleType>
 
      <xs:simpleType name="idiomasDisponibles">
         <xs:restriction base="xs:string">
-          <xs:enumeration value="Español"/>
-          <xs:enumeration value="Ingles"/>
-          <xs:enumeration value="Aleman"/>
-          <xs:enumeration value="Koreano"/>
+          <xs:enumeration value="Francés"/>
+          <xs:enumeration value="Italiano"/>
+          <xs:enumeration value="Inglés"/>
+          <xs:enumeration value="Alemán"/>
+          <xs:enumeration value="Chinese"/>
+          <xs:enumeration value="Korean"/>
+          <xs:enumeration value="Japanese"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <!-- VALIDACION TIPO CODIGO -->
+      <xs:simpleType name="tipoCodigo">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\d{2}-[\[][A-Z]{2}[\]]-\d{2}"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <!-- DERIVACION DE TIPOS DE DATOS SIMPLES -->
+      <xs:simpleType name="tipoVisualizacionesPrimitivo">
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="100000000"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="tipoDerivado">
+        <xs:restriction base="tipoVisualizacionesPrimitivo">
+          <xs:maxInclusive value="200000"/>
         </xs:restriction>
       </xs:simpleType>
 
