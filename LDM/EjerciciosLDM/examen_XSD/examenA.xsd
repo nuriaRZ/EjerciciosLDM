@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ofertasBlackFriday">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="articulo" maxOccurs="unbounded" type="tipoArticulo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- ELEMENTOS DE ARTICULO-->
+  <xs:complexType name="tipoArticulo" mixed="true">
+    <xs:all>
+      <xs:element name="fabricante">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="canon" type="tipoVacio"/>
+            <xs:element name="epson" type="tipoVacio"/>
+            <xs:element name="samsung" type="tipoVacio"/>
+            <xs:element name="apple" type="tipoVacio"/>
+            <xs:element name="phillips" type="tipoVacio"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="oferta" type="tipoOferta"/>
+      <xs:element name="valoraciones">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="positiva" type="tipoValoracion"/>
+            <xs:element name="negativa" type="tipoValoracion"/>
+            <xs:element name="masVotada" type="tipoValoracionesDerivados"/>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="preguntas">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="pregunta" maxOccurs="unbounded" type="tipoPreguntaDerivada"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="agregadoACestaDeCompra" type="tipoCestaCompra"/>
+    </xs:all>
+    <xs:attribute name="codigo" type="xs:string"/>
+  </xs:complexType>
+
+  <!--TIPO VACIO -->
+  <xs:complexType name="tipoVacio"/>
+  
+<!-- VALIDACION DE OFERTA-->
+  <xs:simpleType name="textoNoVacio">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoDecimal">
+    <xs:restriction base="textoNoVacio">
+      <xs:pattern value="[0-9]{2}[.][0-9]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tipoOferta">
+    <xs:simpleContent>
+      <xs:extension base="tipoDecimal">
+        <xs:attribute name="precioHabitual" type="tipoPrecio"/>
+        <xs:attribute name="descuento" type="tipoDescuento"></xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!--VALIDACION DE ATRIBUTOS -->
+  <xs:simpleType name="tipoDescuento">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{2}[%]"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoPrecio">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="\d+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ELEMENTOS DE VALORACIONES -->
+  <xs:complexType name="tipoValoracion" mixed="true">
+    <xs:sequence>
+      <xs:element name="autor" type="tipoUnionAutores"/>
+      <xs:element name="texto"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- TIPO DE DATOS DERIVADOS COMPLEJOS-->
+  <xs:complexType name="tipoValoracionesDerivados">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tipoValoracion">
+        <xs:sequence>
+          <xs:element name="fecha" type="tipoFecha"/>
+        </xs:sequence>
+        <xs:attribute name="votosFavorables"/>
+        <xs:attribute name="votosDesfavorables"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+    
+  <!-- VALIDACION DE FECHA -->
+  <xs:simpleType name="tipoFecha">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2} PM|AM"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="tipoPreguntaDerivada">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tipoValoracion">
+        <xs:sequence>
+          <xs:element name="respuestas">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="respuesta" type="tipoRespuesta" maxOccurs="unbounded"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- ELEMENTOS DE RESPUESTA-->
+  <xs:complexType name="tipoRespuesta" mixed="true">
+    <xs:all>
+      <xs:element name="votantesEnPositivo" type="tipoListaVontates"/>
+      <xs:element name="votantesEnNegativo" type="tipoListaVontates"/>
+    </xs:all>
+    <xs:attribute name="autor" type="tipoUnionAutores"/>
+  </xs:complexType>
+
+  <!-- VALIDACION DE AUTOR -->
+  <xs:simpleType name="tipoUnionAutores">
+    <xs:union memberTypes="tipoNombresFem tipoNombresMasc"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoNombresFem">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Estela"/>
+      <xs:enumeration value="Carmen"/>
+      <xs:enumeration value="Silvia"/>
+      <xs:enumeration value="Araceli"/>
+      <xs:enumeration value="Lucía"/>
+      <xs:enumeration value="Inma"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoNombresMasc">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Pedro"/>
+        <xs:enumeration value="Álvaro"/>
+        <xs:enumeration value="Gonzalo"/>
+        <xs:enumeration value="Javier"/>
+        <xs:enumeration value="Pablo"/>
+        <xs:enumeration value="Rafa"/>
+        <xs:enumeration value="Juan"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <!-- LISTA DE VOTANTES -->
+    <xs:simpleType name="tipoListaVontates">
+      <xs:list itemType="tipoUnionAutores"/>
+    </xs:simpleType>
+
+    <!--VALIDACION DE CESTA DE COMPRA -->
+    <xs:simpleType name="tipoTextoCesta">
+      <xs:restriction base="xs:string">
+        <xs:pattern value="(lunes|martes|miercoles|jueves|viernes|sabado|domingo) \d{1,2} de (enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre) de \d{4}"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoCestaCompra">
+      <xs:simpleContent>
+        <xs:extension base="tipoTextoCesta">
+          <xs:attribute name="value" type="xs:string"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>
