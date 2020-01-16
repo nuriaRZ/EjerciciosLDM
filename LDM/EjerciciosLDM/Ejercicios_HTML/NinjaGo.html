@@ -7,55 +7,144 @@
             body{
                 margin: 50px;
                 padding: 0px;
-                background: rgb(240, 243, 242);
+                background-image: url("https://images.alphacoders.com/157/thumb-1920-157301.jpg");
+              /*  background: rgb(240, 243, 242);*/
                 font-family: 'Open Sans', sans-serif;
                 font-size: 11pt;
-                color: rgb(3, 3, 3)
+                color: rgb(3, 3, 3);
+
             }
             h1 {
                 text-align: center;
 			    color: rgb(12, 12, 12);
-		}
+                text-decoration: underline;
+                font-size: 30pt;
 
-        img {
-            height: 50%;            
+		    }
+
+            h2{
+                text-align: center;
+            }
+
+            a{
+                color: rgb(70, 131, 20);
+                font-family: fantasy;
+                font-size: 15pt;
+            }
+
+        table {
+           
+            width: 85%;            
+            border: black 5px solid;
+            border-collapse: collapse;
+            
+
         }
+
+        tr {
+            background-color: rgba(240, 198, 121, 0.925);             
+            margin: 10px;
+            padding: 10px;
+            border: black 2px solid;
+                      
+        }
+
+        td {
+            margin: 10px;
+            padding: 10px;
+            border: black 2px solid;
+        }
+
+        .texto {
+            font-family: monospace;
+            font-size: 11pt;
+            text-align: justify;
+        }
+
+        img:hover {
+            opacity: 0.3;
+           
+        }
+
+        a:hover {
+            color: white;
+            font-style: italic;
+        }
+
+        ul li{
+            font-weight: bolder;
+            list-style-type: lower-greek;
+            
+        }
+
+        hr {
+            border-color: black;
+            height: 5px;
+            background-color: black;
+
+        }
+
+        .descripcion {
+            background-color: rgba(255, 235, 205, 0.856);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+
         </style>
 
     </head>
     <body>
+
+        <ul>
+            <li><a href="#marcadorKai"> Ir a Conoce a Kai</a></li>
+            <li><a href="#marcadorLord"> Ir a Conoce a Lord Garmadon</a></li>
+            <li><a href="#marcadorZane"> Ir a Conoce a Zane</a></li>
+            <li><a href="#marcadorDescripcion"> Ir a Descripcion Rapida</a></li>
+            <li><a href="#marcadorFinal"> Ir a Descripcion de la Serie</a></li>
+        </ul>
+
+        <hr/>
         
-        <table width="75%" border="1">
+        <table align="center">
             <tr>
                 <td colspan="2"><h1>LEGO NinjaGo</h1></td>
             </tr>
             <tr>
-                <td rowspan="2"><img src="../Ejercicios_HTML/images/rojo.jpeg"></td>
-                <td>descripcion</td>
+                <td rowspan="2"><img src="../Ejercicios_HTML/images/rojo.png" alt="Ninja_Kai"></td>
+                <td><a name="marcadorKai"></a>
+                    <a href="https://www.lego.com/es-es/kids/characters/ninjago/kai-eec9471c9daa4ec9a735fd748c52d428"><h2>Conoce a Kai</h2></a></td>
 
             </tr>
             <tr>
-               <td>descripcion</td>                
+               <td class="texto">La impulsiva personalidad, el feroz temperamento y la inmensa energ&iacute;a de Kai reflejan el fuego que arde en su interior. Su intenso sentido de la justicia lo hace obstinado y jam&aacute;s se detiene ante nada cuando se propone un objetivo... aunque ese es tambi&eacute;n el origen de su coraje. Como hermano mayor de Nya, siempre est&aacute; tratando de protegerla. Aunque la seguridad de Kai puede resultar abrumadora para algunas personas, eso lo convierte tambi&eacute;n en un l&iacute;der del grupo y uno de sus miembros con m&aacute;s personalidad.</td>                
             </tr>
             <tr>
-                <td rowspan="2"><img src="../Ejercicios_HTML/images/verde.jpeg"></td>
-                <td><a href="https://www.amazon.es/LEGO-Ninjago-Armor-Dragon-Sword/dp/B008D5IMV8"></a></td>
+                <td rowspan="2"><img src="../Ejercicios_HTML/images/Lord.jpg" height="45%" alt="Ninja_LordGaromon"></td>
+                <td><a name="marcadorLord"></a>
+                    <a href="https://www.lego.com/es-es/kids/characters/ninjago/lord-garmadon-73a7ff10ea26463d91996c2cafec9dc7"><h2>Conoce a Lord Garmadon</h2></a></td>
                 
             </tr>
             <tr>
-                <td>descripcion</td>                
+                <td class="texto">Luego de ser mordido por el Gran Devorador cuando era ni&ntilde;o, el hermano de Wu se volvi&oacute; perverso y se convirti&oacute; en Lord Garmadon. Cuando su hijo Lloyd acab&oacute; con la amenaza que representaba el Se&ntilde;or Supremo, Garmadon logr&oacute; librarse finalmente del veneno que corr&iacute;a por sus venas. Fue entonces que se convirti&oacute; en un afectuoso padre para Lloyd. La &uacute;ltima vez que se supo de &eacute;l, Garmadon se hab&iacute;a sacrificado para salvar el mundo de NINJAGO y se perdi&oacute; en el Reino Maldito</td>                
              </tr>
              <tr>
-                <td rowspan="2"><img src="../Ejercicios_HTML/images/azul.jpeg"></td>
-                <td>descripcion</td>
+                <td rowspan="2"><img src="../Ejercicios_HTML/images/zane.png" alt="Ninja_Zane"></td>
+                <td><a name="marcadorZane"></a>
+                    <a href="https://www.lego.com/es-es/kids/characters/ninjago/zane-18605f8f5f2e4b9aa84cad6a4adb2bb1"><h2>Conoce a Zane</h2></a></td>
                 
             </tr>
             <tr>
-                <td>descripcion</td>                
+                <td class="texto">Zane, el antiguo ninja blanco, es un inteligente y poderoso nindroide (robot ninja) que desempe&ntilde;a la funci&oacute;n de inteligencia computacional en el grupo. Fue creado por el Dr. Julien para proteger a quienes no pod&iacute;an protegerse a s&iacute; mismos. Entregado a la paz, la libertad y el coraje, este racional ninja es valeroso y atento, y tiene un gran coraz&oacute;n... aunque no tenga ninguno!</td>                
              </tr>
              <tr>
-                 <td colspan="2"><h2>descripcion rapida</h2></td>
+                 <td colspan="2"><a name="marcadorDescripcion"></a><h2>Bajo la sabia direcci&oacute;n del anciano Maestro del Spinjitzu Wu, nuestros j&oacute;venes y valientes ninjas siempre est&aacute;n listos para luchar contra el mal, salvar al mundo de LEGO NINJAGO de todos sus enemigos y restaurar la armon&iacute;a.</h2></td>
              </tr>
         </table>
+        <hr/>
+        <h1>DESCRIPCION DE LA SERIE</h1>
+        <a name="marcadorFinal"></a>
+        <p class="descripcion">El programa se desarrolla en el mundo ficticio de Ninjago, el cual est&aacute; inspirado en la cultura China y Japonesa. Aparece en la serie como un terreno extenso, tal como la cadena de islas de Jap&oacute;n, con diferentes &aacute;reas hogar de diferentes animales y plantas, incluyendo dragones y serpientes m&iacute;sticas (Como el Gran Devorador). Tiene un inframundo, donde los villanos como Lord Garmadon y la Armada Esqueleto habitan; junto a lugares sagrados donde la mayor&iacute;a de las cosas est&aacute;n ocultas u olvidadas (como las Armas Doradas y la tumba Serpent&iacute;n).<br> Similares a los de la pasada generaci&oacute;n de productos Lego Bionicle, los personajes principales tienen relaci&oacute;n con algunos elementos de la tierra (en este caso Fuego, Hielo, Rayo y Tierra). Adem&aacute;s, el mundo tiene un aspecto moderno, como lo demuestran los rascacielos y los veh&iacute;culos, entre otras cosas.</p>
+
+
     </body>
 </html>
