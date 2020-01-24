@@ -1,0 +1,73 @@
+#divPrincipal{
+    width: 90%;
+    background: cyan;
+    margin: 0 auto;
+}
+#banner {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+ 
+}
+
+#personajes{
+    height: 20px;
+    width: 100%;
+    background: coral;
+
+}
+
+#otroDiv {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenedorTarjeta{
+    margin-top: 30px;
+    width: 100%;
+}
+
+.tarjeta{
+    border: 1px solid salmon;
+    padding: 1%;
+    display: inline-block;
+}
+
+.tarjetaUnTercio{   
+    width: 30%;
+    background: darkkhaki;
+    
+    
+} 
+
+#partesDeTarjeta{
+    width: 100%;
+    height: 30%;
+    background: pink;
+   
+}
+
+
+.textoTarjeta{
+    width: 20%;
+    display: inline-block; 
+}
+
+.enlaceTarjeta{
+    width: 20%;
+    display: inline-block;
+}
+
+.tarjetaUnCuarto{
+    width: 23%;
+}
+
+.tarjetaUnQuinto{
+background-color: pink;
+}
+
+.imagenAnchoCompleto{
+    width: 100%;
+}
