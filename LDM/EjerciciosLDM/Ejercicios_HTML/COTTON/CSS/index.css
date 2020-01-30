@@ -1,7 +1,39 @@
 #divPrincipal{
     margin: auto;
     height: 100%;
-    width: 80%;
+    width: 100%;
     background-color: rgb(29, 94, 102);
 
 }
+
+.divMenuPrincipal{
+    height: 10%;
+    width: 100%;
+    background-color: white;
+    
+}
+.partesDeMenu {
+    width: 20%;
+    height: 60%;
+    background-color: white;
+    display: inline-block;
+    text-align: center;    
+    padding: 1%;
+}
+
+.textoMenu{
+    color: black;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+    
+}
+
