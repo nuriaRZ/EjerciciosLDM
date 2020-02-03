@@ -2,23 +2,39 @@
     margin: auto;
     height: 100%;
     width: 100%;
-    background-color: rgb(29, 94, 102);
+    background-color:white;
 
+}
+
+.divCabecera{
+    width: 100%;
+    height: 15%;
+    margin: auto;
+    text-align: center;
+   
+}
+
+.tituloCabecera{
+    font-family: 'Black Ops One', cursive;
+    font-size: 80px;
+    color: gray;
 }
 
 .divMenuPrincipal{
     height: 10%;
     width: 100%;
     background-color: white;
+   
+    
     
 }
 .partesDeMenu {
     width: 20%;
-    height: 60%;
+    height: 50%;
     background-color: white;
     display: inline-block;
     text-align: center;    
-    padding: 1%;
+    padding-top: 1.5%;
 }
 
 .textoMenu{
@@ -36,4 +52,50 @@ a:hover {
     text-decoration: underline;
     
 }
+
+#imagenesInicio{
+    width: 100%;
+    height: 100%;
+   
+}
+
+
+.parteDivididaDeImagen{
+    width: 100%;
+    height: 100%;
+   margin: 2px;
+   
+    text-align: center;
+    
+    
+}
+.parteDivididaDeImagen2{
+    width: 100%;
+    height: 50%;
+   
+    
+    
+}
+
+.imagenTienda{
+    width: 48%;
+    height: 100%;
+    margin: 5px;
+    padding: 4px;   
+    display: inline-block;
+
+}
+.imagenTienda2{
+    width: 48%;
+    height: 100%;   
+    display: inline-block;
+
+}
+
+.imagenAnchoYAltoCompleto{
+   width: 100%;
+   height: 100%;
+}
+
+
 
