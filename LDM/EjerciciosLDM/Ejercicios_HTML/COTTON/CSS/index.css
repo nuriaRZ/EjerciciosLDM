@@ -105,44 +105,55 @@ a:hover {
     
     #menu {
     background-color: white;
-    height: 35px;
+    height: 50px;
     width: 100%;
-   
     }
     
     #menu li {
-    height: 35px;
-    background-color: white;
+    height: 50px;
+   /* background-color: rgba(175, 171, 170, 0.575);*/
+  
+    
     transition: 0.25s;
     padding-left: 10px;
     padding-right: 10px;
     vertical-align: middle;
     display: table-cell;
-    color: black;
+    color:black;
     list-style: none;
     cursor: pointer;
+    
     }
     
     #menu li:hover {
-    background: white;
+    background: rgba(168, 164, 164, 0.651);
+    
     }
     
     #menu ul {
     display: none;
     position: absolute;
-    top: 35px;
-    background: white;
+    
+     
+     
+     background-color: rgb(223, 223, 223);
     color: black;
-    margin: 0;
+   
     box-shadow: 1px 1px 1px black;
     }
     
     #menu ul li {
-    display: -webkit-inline-box;;
-    vertical-align: top;
+    height: 35px;    
+   padding: 5px;
+   margin: 5px;
+    display: inline-table;
+    vertical-align: middle;
     color: black;
-    padding: 5px 10px 5px 10px;
+   /* background-color: rgba(175, 171, 170, 0.575);*/
+      
     }
+
+
     
     #menu li:hover ul ul,
     #menu li:hover ul ul ul {

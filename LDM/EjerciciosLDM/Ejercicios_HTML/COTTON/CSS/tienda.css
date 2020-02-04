@@ -2,6 +2,7 @@
     width: 20%;
     height: 40%;
     background-color: cornflowerblue;
+    display: inline-block;
 }
 
 .fotoArticulo{
@@ -18,4 +19,26 @@
     background-color: darkkhaki;
 
 
+}
+
+.espacioParaDescripcion{
+    width: 60%;
+    height: auto;
+    float: left;
+    background-color: teal;
+}
+
+.espacioParaPrecio{
+    width: 30%;
+    height: auto;
+    float: right;
+    background-color: green; 
+}
+
+#contenedorTarjetas{
+    margin: auto;
+    background-color: tomato;
+    width: 90%;
+    height: 100%;
+   
 }
