@@ -97,5 +97,66 @@ a:hover {
    height: 100%;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    }
+    
+    #menu {
+    background-color: white;
+    height: 35px;
+    width: 100%;
+   
+    }
+    
+    #menu li {
+    height: 35px;
+    background-color: white;
+    transition: 0.25s;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+    display: table-cell;
+    color: black;
+    list-style: none;
+    cursor: pointer;
+    }
+    
+    #menu li:hover {
+    background: white;
+    }
+    
+    #menu ul {
+    display: none;
+    position: absolute;
+    top: 35px;
+    background: white;
+    color: black;
+    margin: 0;
+    box-shadow: 1px 1px 1px black;
+    }
+    
+    #menu ul li {
+    display: -webkit-inline-box;;
+    vertical-align: top;
+    color: black;
+    padding: 5px 10px 5px 10px;
+    }
+    
+    #menu li:hover ul ul,
+    #menu li:hover ul ul ul {
+    display: none;
+    }
+    
+    #menu li:hover ul,
+    #menu ul li:hover ul,
+    #menu ul ul li:hover ul {
+    display: table-cell;
+    margin-left: -10px;
+    }
+
+    
+
 
 
