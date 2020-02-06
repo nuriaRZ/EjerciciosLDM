@@ -16,7 +16,7 @@ float: left;
 .descripcionArticulo{
     width: 50%;
     height: 100%;
-    background-color: cornflowerblue;
+    background-color: white;
    float: right; 
 }
 
@@ -40,3 +40,77 @@ float: left;
     margin-left:5px ;
     display: inline-block;
 }
+
+.precioAnterior{
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    text-decoration: line-through;
+}
+
+.precio{
+    font-size: 30px;
+    color: red;
+    font-weight: bold;
+
+}
+
+ul{
+    list-style: none;
+    margin: auto;    
+}
+
+label{
+    font-size: 20px;
+    
+}
+
+.campoDesplegable{
+    font-size: 15px;
+    width: 90%;
+    height: 30px;
+}
+
+.btnCarrito{
+    margin: auto;
+    width: 30%;
+    padding: 20px;  
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+
+.btnCarrito:hover{            
+    background-color: white;
+    color: black;
+    transition: 0.50s;
+    font-weight: bold;
+
+}
+
+.contenedorTablas{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.tablas{
+        
+    margin: auto;
+    width: 90%;
+    height: 20%;
+    
+    
+}
+
+.casillaConFondo{
+    background-color: gray;
+}
+
+
+
