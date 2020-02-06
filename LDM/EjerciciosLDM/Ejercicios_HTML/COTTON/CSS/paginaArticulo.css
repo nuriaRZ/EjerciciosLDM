@@ -1,0 +1,42 @@
+.articulo{
+width: 100%;
+height: 100%;
+
+
+}
+.contenedorDeImagenes{
+width: 50%;
+background-color:white;
+text-align: center;
+
+float: left;
+
+}
+
+.descripcionArticulo{
+    width: 50%;
+    height: 100%;
+    background-color: cornflowerblue;
+   float: right; 
+}
+
+.imagenGrandeDeArticulo{
+    margin: auto;
+    width: 95%;  
+    text-align: center;
+    display: inline-block;
+}
+
+.slideImagenes{
+    width: 95%;
+    background-color: white;
+    margin: auto;
+}
+
+.imagenPequeDelArticulo{
+    width: 22%;
+    height: 35%;
+    margin-top: 10px;
+    margin-left:5px ;
+    display: inline-block;
+}

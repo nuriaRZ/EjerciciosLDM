@@ -1,8 +1,10 @@
 .tarjetaArticulo{
-    width: 20%;
-    height: 40%;
-    background-color: cornflowerblue;
+    width: 24%;
+    height: 60%;
+    background-color: white;
     display: inline-block;
+    margin-bottom: 30px;
+    margin-right: 5px;
 }
 
 .fotoArticulo{
@@ -37,8 +39,8 @@
 
 #contenedorTarjetas{
     margin: auto;
-    background-color: tomato;
-    width: 90%;
-    height: 100%;
+    background-color: white;
+    width: 90%;    
+    text-align: center;
    
 }
