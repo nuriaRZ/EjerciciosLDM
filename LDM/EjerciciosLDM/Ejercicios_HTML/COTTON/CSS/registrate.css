@@ -1,0 +1,120 @@
+body {
+    font-family:�Lucida Grande�, �Lucida Sans Unicode�, Verdana, Arial, Helvetica, sans-serif;
+    font-size:12px;
+}
+p, h1, form, button {
+    border:0; margin:0; padding:0;
+}
+
+.spacer {
+    clear:both; 
+    height:1px;
+}
+
+.myform{
+    margin:0 auto;
+    width:50%;
+    padding:14px;
+    
+}
+
+#stylized{
+    border:solid 2px #b7ddf2;
+    background:#ebf4fb;
+    
+}
+#stylized h1 {
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+#stylized p{
+    font-size:11px;
+    color:#666666;
+    margin-bottom:20px;
+    border-bottom:solid 1px #b7ddf2;
+    padding-bottom:10px;
+}
+#stylized label{
+    display:block;
+    font-weight:bold;
+    text-align:right;
+    width:100px;
+    float: right;
+}
+#stylized .small{
+    color:#666666;
+    display:block;
+    font-size:11px;
+    font-weight:normal;
+    text-align:right;
+    width:100px;
+}
+#stylized .smallUnlimited{
+    color:#666666;
+    display:block;
+    font-size:11px;
+    font-weight:normal;
+    text-align:left;
+    /*width:140px;*/
+}
+.campoNormal{
+    float:left;
+    font-size:12px;
+    padding:4px 2px;
+    /*border:solid 1px #aacfe4;*/
+    width:200px;
+    margin:2px 0 20px 10px;
+}
+.campoNormal:focus {
+    border:solid 1px #FF0000; /* rojo */
+}
+.campoNormal:active {
+    background: #0C9; /* verde */
+}
+.campoNormal:hover {
+    border:solid 1px #0000FF; /* azul */
+}
+
+.campoFicticio{
+float: left;
+font-size: 10px;
+padding: 0px;
+text-align: left;
+margin: 2px 150px 0px 7px;
+}
+.boton{
+    clear:both;
+    margin-left:150px;
+    width:125px;
+    height:31px;
+    background:#666666 url(img/button.png) no-repeat;
+    text-align:center;
+    line-height:31px;
+    color:#FFFFFF;
+    font-size:11px;
+    font-weight:bold;
+}
+
+td{
+    padding: 5px;
+    
+}
+
+
+.campoSmall{
+    float:left;
+    font-size:12px;
+    padding:4px 2px;
+    width: 100px;
+    margin:2px 0 20px 10px;    
+   
+   
+}
+
+
+
+
+.alinearTablaDireccion{
+    float: left;
+}

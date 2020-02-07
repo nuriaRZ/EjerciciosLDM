@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>COTTON</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="CSS/index.css" rel="stylesheet" type="text/css" media="all">
+		<link href="CSS/registrate.css" rel="stylesheet" type="text/css" media="all">
+        <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	
+
+</head>
+<body>
+<div id="stylized" class="myform">
+	<h1>COTTON</h1>
+    <span class="smallUnlimited">Estos datos serán utilizados para tramitar tu pedido.</span>
+    <p></p>
+<form id="form1" name="form1" method="post" action="/ServletEjemploFormularios">
+
+	<table >
+		<tr>
+			<td><label>Nombre:<span class="small">Tu nombre</span></label></td>
+			<td><input type="text" name="Nombre" id="Nombre" class="campoNormal" required/></td>
+		</tr>
+		<tr>
+			<td><label for="Apellidos">Apellidos:<span class="small">Tus apellidos</span></label></td>
+			<td><input type="text" name="Apellidos" id="Apellidos"  class="campoNormal" required/></td>
+		</tr>
+		<tr>
+			<td><label for="Email">Email:<span class="small">Debe contener una direccion de correo válida</span></label></td>
+			<td><input type="text" name="Email" id="Email"  class="campoNormal" required/></td>			
+		</tr>
+
+		<tr>
+			<td><label for="Tlfn">Teléfono:<span class="small"></label></label></td>
+			<td><input type="text" name="Tlfn" id="Tlfn"  class="campoNormal" required/></td>
+		</tr>
+
+		<tr>
+			<td><label for="password">Contraseña:<span class="small">Debe contener 8 caracteres mínimo</label></td>
+			<td><input type="password" name="password" id="password"  class="campoNormal" required min="8"/></td>
+		</tr>
+
+
+
+		<tr>
+			<td colspan="2"><label>Sexo:</label><span class="campoFicticio"></td>
+			
+			<tr>	
+			<td><label>Hombre</label></td>
+			<td><input type="radio" name="Sexo" value="1" id="Sexo_0" /></td>
+			<td><label>Mujer</label></td>
+			<td><input type="radio" name="Sexo" value="2" id="Sexo_1" /></td>
+			
+			</tr>
+			<br>
+			
+		</tr>
+
+		<tr>
+			
+			
+				<tr>
+				<td><label>Localidad:</label></td>
+				<td><input type="text" name="Localidad" id="Localidad"  class="campoNormal" required/></td>
+				<td ><label>Provincia:</label></td>
+				<td><select name="select" id="select" class="campoDesplegable">
+					<option value="1">Almería</option>
+					<option value="2">Cádiz</option>
+					<option value="3">Huelva</option>
+					<option value="4">Córdoba</option>
+					<option value="5">Granada</option>
+					<option value="6">Jaén</option>
+					<option value="7">Málaga</option>
+					<option value="8">Sevilla</option>
+					</select></td>	
+			</tr>
+			<tr>
+				
+				<td><label>Código Postal:</label></td>
+				<td><input type="text" name="Localidad" id="Localidad"  class="campoSmall" required/></td>	
+			</tr>
+			<tr>
+				<td><label>Dirección:</label><span class="small">Introduce la dirección de tu domicilio</span></td>
+				<td><input type="text" name="Direccion" id="direccion"  class="campoNormal" required/></td>
+			</tr>
+						
+		</tr>
+		<tr>
+			<td><label>Sugerencias:</label></td>
+			<td><textarea cols="20" placeholder="sugerencias para mejorar"></textarea></td>
+		</tr>
+
+
+
+
+	</table>
+  
+    
+
+  
+
+
+  
+    
+	
+	
+	
+    
+ 
+	
+	
+    
+
+  
+    
+    
+      
+
+    
+    
+      
+  
+    
+  
+    <input name="oculto" type="hidden" id="oculto" value="valorOculto" />
+
+  
+    <input type="submit" name="Enviar" id="Enviar" value="Enviar" class="boton"/>
+  
+</form>
+<p><a href="http://www.google.es" class="campoNormal">Enlace a Google</a></p>
+</div>
+</body> 
+</html>

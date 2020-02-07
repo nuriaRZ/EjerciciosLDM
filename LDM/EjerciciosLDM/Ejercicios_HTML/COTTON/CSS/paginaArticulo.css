@@ -14,6 +14,7 @@ float: left;
 }
 
 .descripcionArticulo{
+    
     width: 50%;
     height: 100%;
     background-color: white;
@@ -28,20 +29,23 @@ float: left;
 }
 
 .slideImagenes{
-    width: 95%;
+    width: 100%;
     background-color: white;
     margin: auto;
 }
 
 .imagenPequeDelArticulo{
-    width: 22%;
-    height: 35%;
+    width: 23%;
+    height: 30%;
     margin-top: 10px;
-    margin-left:5px ;
+    margin-left:2px ;
     display: inline-block;
 }
 
+
+
 .precioAnterior{
+    font-family: 'Syncopate', sans-serif;
     font-size: 20px;
     color: black;
     font-weight: bold;
@@ -49,6 +53,7 @@ float: left;
 }
 
 .precio{
+    font-family: 'Syncopate', sans-serif;
     font-size: 30px;
     color: red;
     font-weight: bold;
@@ -67,12 +72,31 @@ label{
 
 .campoDesplegable{
     font-size: 15px;
+    background-color: rgba(206, 201, 201, 0.219);
     width: 90%;
     height: 30px;
 }
 
-.btnCarrito{
+.cantidadArticulo{
     margin: auto;
+    width: 60px;
+    height: 40px;
+    font-size: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+.divEnForm{
+    text-align: center;
+    padding: 15px;    
+    margin: auto;
+    width: 100%;
+    vertical-align: center;
+    
+}
+
+.btnCarrito{
+    margin-left: 50px;
     width: 30%;
     padding: 20px;  
     background-color: black;
@@ -82,6 +106,7 @@ label{
     vertical-align: middle;
     font-size: 20px;
     font-family: 'Quicksand', sans-serif;
+    display: inline-block;
     
 }
 
@@ -99,18 +124,40 @@ label{
     text-align: center;
 }
 
-.tablas{
-        
-    margin: auto;
-    width: 90%;
-    height: 20%;
+
+
+table{
+  width: 90%; 
+  
+}
+
+.tituloTabla{
+    width: 20%;
+    background-color: rgba(185, 181, 181, 0.623);
+    font-weight: bold;
+    text-decoration: underline;
     
     
 }
 
-.casillaConFondo{
-    background-color: gray;
+.descripcionTabla{
+    width: 90%;
 }
+
+td{
+    padding: 5px;
+}
+
+.divDeArticulosRecomendados{
+
+
+}
+
+
+
+
+
+
 
 
 

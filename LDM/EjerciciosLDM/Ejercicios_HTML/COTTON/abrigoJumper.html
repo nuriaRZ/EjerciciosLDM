@@ -6,30 +6,30 @@
         <link href="CSS/paginaArticulo.css" rel="stylesheet" type="text/css" media="all">
         <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Syncopate&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="divPrincipal">
             <div class="divCabecera tituloCabecera">COTTON</div>
-        <nav>
-            <ul id="menu">
-            <li><a href="index.html"> Inicio</a></li> 
-            <li id="sub-menu">Tienda
+        <nav >
+            <ul id="menu" >
+            <li class="tipoDeLetra"><a href="index.html"> Inicio</a></li> 
+            <li id="sub-menu" class="tipoDeLetra">Tienda
             <ul>            
-                <li>Ropa
-                    <ul>
-                        <li><a href="abrigosYChaquetas.html">Abrigos</a></li>
-                        <li>Chaquetas</li>
-                        <li>Jerseys</li>
-                        <li>Camisas</li>
-                        <li>Camisetas</li>
-                        <li>Pantalones y Chinos</li>
-                        <li>Vaqueros</li>
+                <li class="tipoDeLetra">Ropa
+                    <ul >
+                        <li class="tipoDeLetra"><a href="abrigosYChaquetas.html">Abrigos Y Chaquetas</a></li>                        
+                        <li class="tipoDeLetra">Jerseys</li>
+                        <li class="tipoDeLetra">Camisas</li>
+                        <li class="tipoDeLetra">Camisetas</li>
+                        <li class="tipoDeLetra">Pantalones y Chinos</li>
+                        <li class="tipoDeLetra">Vaqueros</li>
                     </ul>
-                </li>
-                <li>Calzado</li>
-                <li>Accesorios</li>
+                </liclass="tipoDeLetra">
+                <li class="tipoDeLetra">Calzado</li>
+                <li class="tipoDeLetra">Accesorios</li>
             </ul>
-            <li>Quienes Somos</li>
+            <li class="tipoDeLetra">Regístrate</li>
             </nav>
 
             <div class="articulo">
@@ -44,24 +44,25 @@
                     </div>    
                 </div>
                 <div class="descripcionArticulo">
-                    <h1>Abrigo Jumper</h1><br> 
+                    <p class="tipoDeLetra"><a href="index.html"> Inicio</a> > <a href="abrigosYChaquetas.html"> Abrigos Y Chaquetas </a> > Abrigo Jumper</p><br>                    
+                    <h1>ABRIGO JUMPER</h1><br> 
                     <p class="precioAnterior">80.00€</p> <br>                    
                     <p class="precio" > 60.00€</p>                     
                     <hr>
                     <br>
-                    <p>Sofisticado abrigo confeccionado en tejido técnico con varios bolsillos, capucha amplia con pelo sintético y cordones ajustables.</p>
+                    <p class="tipoDeLetra">Sofisticado abrigo confeccionado en tejido técnico con varios bolsillos, capucha amplia con pelo sintético y cordones ajustables.</p>
                     <br>
                     <hr><br>
                     <ul>
-                        <li>Composición: 83% Poliéster, 17% algodón. </li> 
-                        <li>Envío estándar gratuito a partir de 45€ </li>
-                        <li>Pagos: VISA, MasterCard, American Express, Paypal.</li>                        
+                        <li class="tipoDeLetra"><span class="tipoDeLetra textoUnderline textoNegrita">Composición:</span> 83% Poliéster, 17% algodón. </li> 
+                        <li class="tipoDeLetra">Envío estándar gratuito a partir de <span class="tipoDeLetra textoNegrita">45€</span> </li>
+                        <li class="tipoDeLetra"><span class="tipoDeLetra textoUnderline textoNegrita"> Pagos:</span> VISA, MasterCard, American Express, Paypal.</li>                        
                     </ul>
                     <br><hr><br> 
                    <form>
                     <p>  
-                       <label for="select">Talla</label><br>                        
-                        <select name="select" id="select" class="campoDesplegable">
+                       <label for="select" class="tipoDeLetra">Talla</label><br>                        
+                        <select name="select" id="select" class="campoDesplegable tipoDeLetra">
                           <option value="1">S</option>
                           <option value="2">M</option>
                           <option value="3">L</option>
@@ -70,35 +71,46 @@
                           </select>
                     </p><br>                    
                     <p>
-                        <label for="select">Color</label>                        
-                        <select name="select" id="select" class="campoDesplegable">
+                        <label for="select" class="tipoDeLetra">Color</label><br>                        
+                        <select name="select" id="select" class="campoDesplegable tipoDeLetra">
                           <option value="1">Verde</option>
                           <option value="2">Azul</option>                          
                           </select> 
+                    </p>
+                    <p><br>
+                     <div class="divEnForm">   
+                        <input type="number" type="range" min="0" placeholder="1" name="cantidad" id="select2" class="cantidadArticulo"></input>                       
+                        
+                     <div class=" btnCarrito" >Añadir al carrito</div> <br>
+                    </div> 
                     </p> 
                    </form>
-                    <br>
-                      <div class=" btnCarrito" >Añadir al carrito</div> <br>                       
+                    <br><br><br><br>
+                                             
 
                       <div class="contenedorTablas">
-                        <div class="tablas">
-                            <table border="2px">
+                        
+                            <table border="2px" >
                                 <tr>
-                                    <td><span class=""> Tallas</td>
-                                    <td>S, M, L, XL, XXL</td> 
+                                    <td class="tituloTabla tipoDeLetra">Tallas </td>
+                                    <td class="descripcionTabla tipoDeLetra">S, M, L, XL, XXL</td> 
                                 </tr>
                                 <tr>
-                                    <td>Colores</td>
-                                    <td>Verde, Azul, Rojo</td> 
+                                    <td class="tituloTabla tipoDeLetra">Colores </span></td>
+                                    <td class="descripcionTabla tipoDeLetra">Verde, Azul, Rojo</td> 
                                 </tr>
                             </table>
         
-                        </div>
+                        
                     </div>
                       
                     </div>                 
                   
 
+
+                </div>
+
+                <div >
 
                 </div>
 
