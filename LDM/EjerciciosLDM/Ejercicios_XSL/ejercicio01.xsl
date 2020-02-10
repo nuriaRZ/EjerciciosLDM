@@ -2,27 +2,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" encoding="iso-8859-1"/>
 
-  <xsl:template match="/superheroe">
+  <xsl:template match="/placasbase">
     <html>
       <head>
-        <title>Superheroes</title>
+        <title>Piezas de Ordenador</title>
       </head>
       <body>
-      	<xsl:apply-templates/>
+      	<h1><xsl:value-of select="microprocesador"/></h1>
+      	<h1><xsl:value-of select="memoria"/></h1>
+      	<h1><xsl:value-of select="modelo"/></h1>
+      	<h1><xsl:value-of select="fabricante"/></h1>
       </body>
     </html>
   </xsl:template>
 
-  <xsl:template match="nombre">
-      <h1>Superheroe: <xsl:value-of select="."/></h1>
-  </xsl:template>
 
-  <xsl:template match="poderes">
-      <h1>Poderes: <xsl:value-of select="."/></h1>
-  </xsl:template>
-<!--  
-  <xsl:template match="amigos">
-      <h1>Amigos: <xsl:value-of select="."/></h1>
-  </xsl:template>
--->
 </xsl:stylesheet>
