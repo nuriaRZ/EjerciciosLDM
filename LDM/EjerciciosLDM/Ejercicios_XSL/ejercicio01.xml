@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?xml-stylesheet type="text/xsl" href="ejercicio01.xsl" ?>
-<!DOCTYPE placasbase [
-    <!ELEMENT placasbase (microprocesador, memoria, modelo, fabricante)>
-    <!ELEMENT microprocesador (#PCDATA)>
-    <!ELEMENT memoria (#PCDATA)>
-    <!ELEMENT modelo (#PCDATA)>
-    <!ELEMENT fabricante (Intel | Asus)>
-    <!ELEMENT Intel EMPTY>
-    <!ELEMENT Asus EMPTY>
-]>
+
 
 
 <placasbase>

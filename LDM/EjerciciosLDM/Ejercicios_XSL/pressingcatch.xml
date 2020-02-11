@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="pressingcatch.xsl" ?>
+<wwe>
+	<europa>
+		<personaje>
+			<nombre>Undertaker</nombre>
+			<edad>40</edad>
+		</personaje>
+		<personaje>
+			<nombre>Randy Orton</nombre>
+			<edad>50</edad>
+		</personaje>
+	</europa>
+	<eeuu>
+		<personaje>
+			<nombre>Hulk Hogan</nombre>
+			<edad>80</edad>
+		</personaje>
+		<personaje>
+			<nombre>Ultimate Warrior</nombre>
+			<edad>80</edad>
+		</personaje>
+		<personaje>
+			<nombre>AJ Styles</nombre>
+			<edad>37</edad>
+		</personaje>
+	</eeuu>
+</wwe>
