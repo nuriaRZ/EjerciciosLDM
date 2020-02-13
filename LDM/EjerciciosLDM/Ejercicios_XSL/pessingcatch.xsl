@@ -17,11 +17,7 @@
 	          color: #FFFFFF;
 	          text-align:center;
 	        }
-	        
-	        .tituloTabla {
-	          font-weight: bold;   
-	          text-align: center;
-	        }
+
 	      </style>
       <body>
        <xsl:apply-templates select="europa"/>
@@ -31,32 +27,38 @@
   </xsl:template>
   
    <xsl:template match="europa">
-    <table border="1">
-      <tr class="tituloTabla">
-        <td><xsl:value-of select="personaje"/></td>
-      </tr>
-      <tr>
-        <td>nombre: <xsl:value-of select="nombre"/></td>
-      </tr>
-      <tr>
-        <td>edad: <xsl:value-of select="edad"/></td>
-      </tr>
-    </table>
+	<ul>
+		<li><xsl:value-of select="personaje"/></li>
+			<ul>
+			<li>nombre: <xsl:value-of select="nombre"/> </li>
+			<li>edad: <xsl:value-of select="edad"/> </li>
+			</ul>
+	</ul>
+	<ul>
+		<li><xsl:value-of select="personaje"/></li>
+			<ul>
+			<li>nombre: <xsl:value-of select="nombre"/> </li>
+			<li>edad: <xsl:value-of select="edad"/> </li>
+			</ul>
+	</ul>
     <br/>
   </xsl:template>
   
      <xsl:template match="eeuu">
-    <table border="1">
-      <tr class="tituloTabla">
-        <td><xsl:value-of select="personaje"/></td>
-      </tr>
-      <tr>
-        <td>nombre: <xsl:value-of select="nombre"/></td>
-      </tr>
-      <tr>
-        <td>edad: <xsl:value-of select="edad"/></td>
-      </tr>
-    </table>
+	<ul>
+		<li><xsl:value-of select="personaje"/></li>
+			<ul>
+			<li>nombre: <xsl:value-of select="nombre"/> </li>
+			<li>edad: <xsl:value-of select="edad"/> </li>
+			</ul>
+	</ul>
+		<ul>
+		<li><xsl:value-of select="personaje"/></li>
+			<ul>
+			<li>nombre: <xsl:value-of select="nombre"/> </li>
+			<li>edad: <xsl:value-of select="edad"/> </li>
+			</ul>
+	</ul>
     <br/>
   </xsl:template>
   
