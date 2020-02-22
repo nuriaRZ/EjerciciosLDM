@@ -9,33 +9,39 @@
 				<xsl:call-template name="css" />
 			</head>
 			<body>
-			 <xsl:apply-templates match="jugadasDescritas">
-				<xsl:for-each select="jugada">
-					<table border="1">
-						<tr>
-							<td>Jugada</td>
-							<td>Tanque</td>
-							<td>Jugada</td>
-
-						</tr>
-						<tr>
-							<td style="background: #00FF00;">
-								<xsl:value-of select="position()" />
-							</td>
-							<td style="background: #00FF00;">
-								<xsl:value-of select="@jugador" />
-							</td>
-							<td style="background: #00FF00;">
-								<xsl:value-of select="@desc" />
-							</td>
-						</tr>
-
-					</table>
-					<br/>
-						</xsl:for-each>
-					</xsl:apply-templates> 				
+			 <xsl:apply-templates select="jugadasDescritas"/> 				
 			</body>
 		</html>
+	</xsl:template>
+	
+	<xsl:template match="jugadasDescritas">
+		<table >
+			<tr>
+				<td class="tituloTabla">Jugada</td>
+				<td colspan="2" class="tituloTabla">Tanque</td>
+				<td class="tituloTabla">Jugada</td>
+			</tr>
+			<xsl:for-each select="jugada">
+			<xsl:choose>
+			<xsl:when test="(position() mod 2) = 1 and @jugador= 1">
+			<tr style="background: #8dc5e3;">
+				<td class="position"><xsl:value-of select="position()"/></td>
+				<td align="center"><xsl:value-of select="@jugador"/></td>
+				<td align="center"> <img src="http://www.webdidacticarafaelmunoz.appspot.com/lmsgi/image/tanque1.jpg"/></td>
+				<td><xsl:value-of select="@desc"/></td>
+			</tr>
+			</xsl:when>
+			<xsl:otherwise>
+			<tr style="background: #ffffff;">
+				<td class="position"><xsl:value-of select="position()"/></td>
+				<td align="center"><xsl:value-of select="@jugador"/></td>
+				<td align="center"> <img src="http://www.webdidacticarafaelmunoz.appspot.com/lmsgi/image/tanque2.jpg"/></td>
+				<td><xsl:value-of select="@desc"/></td>
+			</tr>
+			</xsl:otherwise>
+			</xsl:choose>
+			</xsl:for-each>
+		</table>
 	</xsl:template>
 
 
@@ -48,17 +54,38 @@
 			font-family: 'Open Sans', sans-serif;
 			font-size: 11pt;
 			color: #000000;
-			text-align:center;
+			text-align: center;
 			}
 
 			.tituloTabla {
 			font-weight: bold;
 			text-align: center;
+			color: #ffffff;
+			background: #0a85c7;
+			}
+			
+			.position{
+			font-weight: bold;
 			}
 
 			table{
-			width: 95%;
-			background: #379e9b;
+			margin: auto;
+			width: 60%;
+			border-collapse: collapse;
+			border: #58aad6 3px solid;
+			}
+			td{
+			  width:20px;
+			  
+			}
+			tr{
+			border:#58aad6 3px solid;
+			}
+
+			img{
+						
+			width: 50px;
+			height: 50px;
 			}
 
 		</style>

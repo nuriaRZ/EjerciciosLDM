@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="tanques.xsl" type="text/xsl" ?>
+<?xml-stylesheet  type="text/xsl" href="tanques.xsl"?>
 <juegoTanques>
   <jugadasDescritas>
     <jugada jugador="1" desc="Comienzo del juego moviendo hacía arriba"></jugada>
