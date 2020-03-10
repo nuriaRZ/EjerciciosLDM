@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet  type="text/xsl" href="tanques.xsl"?>
+<?xml-stylesheet  type="text/xsl" href="tanquesJugadasGraficas.xsl"?>
 <juegoTanques>
   <jugadasDescritas>
     <jugada jugador="1" desc="Comienzo del juego moviendo hacía arriba"></jugada>
@@ -32,7 +32,7 @@
       <posicion y="6" x="6" tipo="pared"/>
       <posicion y="6" x="7" tipo="pared"/>
     </jugadaGrafica>
-    <jugadaGrafica>
+ <!--   <jugadaGrafica>
       <posicion y="4" x="1" tipo="tanque" jugador="1"/>
       <posicion y="5" x="8" tipo="tanque" jugador="2"/>
       <posicion y="3" x="2" tipo="pared"/>
@@ -87,6 +87,6 @@
       <posicion y="5" x="6" tipo="pared"/>
       <posicion y="6" x="6" tipo="pared"/>
       <posicion y="6" x="7" tipo="pared"/>
-    </jugadaGrafica>
+    </jugadaGrafica>-->
   </jugadasGraficas>
 </juegoTanques>

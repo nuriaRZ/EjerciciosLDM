@@ -42,7 +42,9 @@
 			</xsl:choose>
 			</xsl:for-each>
 		</table>
+		<br/>
 	</xsl:template>
+
 
 
 	<xsl:template name="css">
