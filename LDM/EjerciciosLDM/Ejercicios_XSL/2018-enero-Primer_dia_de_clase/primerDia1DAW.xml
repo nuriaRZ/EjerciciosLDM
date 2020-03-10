@@ -79,7 +79,7 @@
 		<bloque x="8" y="10" tipo="ventana"/>
 		<color tipo="puerta">ff543a</color>
 		<color tipo="pared">fccf53</color>
-		<color tipo="ventana">bfd7ff</color>
+		<color tipo="ventana">bfd7ff</color> 
 	</estructuraAula>
 	<alumnado>
 		<alumno sexo="H" x="2" y="4">Luis</alumno>

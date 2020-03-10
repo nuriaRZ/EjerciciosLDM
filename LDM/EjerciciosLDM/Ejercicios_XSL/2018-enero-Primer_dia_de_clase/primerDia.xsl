@@ -5,18 +5,19 @@
       <html>
 	      <head>
 	        <title>Primer Dia 1DAW</title>
-	      </head>
-      <style type="text/css">
-        body {
-          margin: 50px;
-          padding: 0px;
-          
-          font-family: 'Open Sans', sans-serif;
-          font-size: 11pt;
-          text-align:center;
-        }
+	     	 <style type="text/css">
+		        body {
+		          margin: 50px;
+		          padding: 0px;
+		          
+		          font-family: 'Open Sans', sans-serif;
+		          font-size: 11pt;
+		          text-align:center;
+		        }
         
-      </style>
+      		</style>
+	      </head>
+
       <body>
       <table border="1">
      	<tr>
@@ -100,15 +101,30 @@
   <xsl:template name="celda">
     <xsl:param name="x"/>
     <xsl:param name="y"/>
-    <xsl:param name="color"/>
-    <td style="background={$color}">      
+    <td>
+	    <xsl:for-each select="estructuraAula/bloque">
+	    	<xsl:if test="@x = $x and @y = $y">
+	    		<xsl:choose>
+	  				<xsl:when test="@tipo='puerta'">
+	  					<xsl:attribute name="style">background:#<xsl:value-of select="../color[@tipo='puerta']"/>;</xsl:attribute>
+	  				</xsl:when>
+	  				<xsl:when test="@tipo='pared'">
+	  					<xsl:attribute name="style">background:#<xsl:value-of select="../color[@tipo='pared']"/>;</xsl:attribute>
+	  				</xsl:when>
+	  				<xsl:when test="@tipo = 'ventana'">
+						<xsl:attribute name="style">background:#<xsl:value-of select="../color[@tipo='ventana']"/>;</xsl:attribute>
+					</xsl:when>
+	  			</xsl:choose>
+	    		<xsl:value-of select="@tipo"/>
+	    	</xsl:if>
+	    </xsl:for-each>
     </td>
   </xsl:template>
   
   <xsl:template name="pintaCeldas">
-  	<xsl:choose>
-  		<xsl:when test="@tipo=puerta"></xsl:when>
-  	</xsl:choose>
+  
+  	
+  
   </xsl:template>
   
   
