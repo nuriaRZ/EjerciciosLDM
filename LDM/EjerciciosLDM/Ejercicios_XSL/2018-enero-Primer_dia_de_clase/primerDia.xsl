@@ -16,8 +16,8 @@
 		        }
 		        
 		        img {
-		        	width: 30px;
-		        	height: 30px;
+		        	width: 40px;
+		        	height: 40px;
 		        }
         
       		</style>
@@ -127,11 +127,13 @@
 	    	<xsl:if test="@x = $x and @y = $y">
 	    		<xsl:choose>
 	    			<xsl:when test="@sexo = 'M'">
+	    				<xsl:attribute name="style">background:#e7b1f0;</xsl:attribute>
 	    				<img>
 	    					<xsl:attribute name="src"><xsl:value-of select="../imagen[@sexo='M']"/></xsl:attribute>
 	    				</img>
 	    			</xsl:when>
 	    			<xsl:otherwise>
+	    				<xsl:attribute name="style">background:#b1f0c4;</xsl:attribute>
 	    				<img>
 	    					<xsl:attribute name="src"><xsl:value-of select="../imagen[@sexo='H']"/></xsl:attribute>
 	    				</img>
