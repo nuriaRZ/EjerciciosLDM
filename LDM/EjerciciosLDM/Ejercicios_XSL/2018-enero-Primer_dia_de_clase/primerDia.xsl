@@ -14,6 +14,11 @@
 		          font-size: 11pt;
 		          text-align:center;
 		        }
+		        
+		        img {
+		        	width: 30px;
+		        	height: 30px;
+		        }
         
       		</style>
 	      </head>
@@ -116,6 +121,23 @@
 					</xsl:when>
 	  			</xsl:choose>
 	    		<xsl:value-of select="@tipo"/>
+	    	</xsl:if>
+	    </xsl:for-each>
+	    <xsl:for-each select="alumnado/alumno">
+	    	<xsl:if test="@x = $x and @y = $y">
+	    		<xsl:choose>
+	    			<xsl:when test="@sexo = 'M'">
+	    				<img>
+	    					<xsl:attribute name="src"><xsl:value-of select="../imagen[@sexo='M']"/></xsl:attribute>
+	    				</img>
+	    			</xsl:when>
+	    			<xsl:otherwise>
+	    				<img>
+	    					<xsl:attribute name="src"><xsl:value-of select="../imagen[@sexo='H']"/></xsl:attribute>
+	    				</img>
+	    			</xsl:otherwise>
+	    		</xsl:choose>
+	    		<xsl:value-of select="."/>
 	    	</xsl:if>
 	    </xsl:for-each>
     </td>
