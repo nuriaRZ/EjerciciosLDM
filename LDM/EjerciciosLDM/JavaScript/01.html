@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicios de Array JavaScript</title>
+    </head>
+<body>
+
+<h1>Ejercicios de Array JavaScript</h1> 
+<h2>Bloque 1</h2>
+
+<p>0º.- Realiza un ejercicio que inicialice un array de 150 elementos enteros al azar entre 0 y 100. Debes mostrar el array en pantalla y obtener la suma, la media, el menor y el mayor de todos los números que aparecen en el array.</p>
+
+<button onclick="JavaScript:ejercicio0();">Resolver</button>
+
+<script>
+
+    function ejercicio0 (){
+        var longitud = 150;
+        var array = creaArray(longitud, 0, 100);
+        
+        var strSolucion = "Array: "+ array +
+        "<br>Max: "+ maxInArray(array) +
+        "<br/>Min: "+ minInArray(array) +
+        "<br/>Suma: " + sumaInArray(array) +
+        "<br/>Min: " + ((sumaInArray) / array.length);
+        document.getElementById("ejercicio0").innerHTML = strSolucion;
+    
+    }
+
+    function maxInArray(array) {
+        if (array.length > 0){
+            var max = array[0];
+            for (var i = 1; i < array.length; i++) {
+                if (array[i] > max){
+                    max = array[i]
+                }
+                
+            }
+            return max;
+        }
+        return NaN;        
+    }
+
+    function minInArray(array) {
+        if (array.length > 0){
+            var min = array[0];
+            for (var i = 1; i > array.length; i++){
+                if(array[i] < min){
+                   min = array[i];
+                }
+            }
+            return min;
+        }
+        return NaN;
+    }
+
+    function sumaInArray(array) {
+        var total = 0;
+        if (array.length > 0){
+            for (var i = 0; i < array.length; i++) {
+                total += array[i];
+                
+            }
+        }
+        return total;
+    }
+
+    function creaArray (longitud, minimo, maximo){
+        var array = new Array(longitud);
+        for (var i = 0; i < longitud; i++) {
+            array[i] = valorAlAzar(minimo, maximo);
+            
+        }
+        return array;
+    }
+
+    function inicializarArray (longitud, minimo, maximo){
+        var array = new Array(longitud);
+        for (var i = 0; i < longitud; i++) {
+            array[i] = i;
+            
+        }
+        return array;
+    }
+
+    function valorAlAzar(minimo, maximo){
+        return Math.round(Math.random() * (maximo - minimo) + minimo);
+    }
+
+</script>
+<p id="ejercicio0"></p>
+<hr/>
+
+<p>1º.- Realiza un ejercicio que inicialice un array de 150 elementos enteros al azar entre un límite inferior y uno superior que debe especificar el usuario. Debes mostrar el array en pantalla para comprobar el funcionamiento</p>
+
+<p>Límite inferior: <input type="text" id="ejercicio1Inf" value="0"/></p>
+<p>Límite superior: <input type="text" id="ejercicio1Sup" value="0"/></p>
+<button onclick="JavaScript:ejercicio1();">Resolver</button>
+
+<script>
+    function ejercicio1() {
+        var longitud = 150;
+        var minimo = parseInt(document.getElementById("ejercicio1Inf").value);
+        var maximo = parseInt(document.getElementById("ejercicio1Sup").value);
+        var array = creaArray (longitud, minimo, maximo);
+        document.getElementById("ejercicio1").innerHTML = array;
+    }
+</script>
+<p id = "ejercicio1"></p>
+<hr/>
+
+<p>2º.- Realiza un ejercicio que inicialice un array de 150 elementos enteros al azar entre 0 y 100. Después de su inicialización debéis imprimir el array en orden inverso.</p>
+
+
+<button onclick="JavaScript:ejercicio2();">Resolver</button>
+
+<script>
+    function ejercicio2() {
+        var longitud = 150;        
+        var array = creaArray (longitud, 0, 100);
+        var strSolucion = "Array: " + array + 
+        "<br>Array invertido: "+ array.reverse();
+        document.getElementById("ejercicio2").innerHTML = strSolucion;
+    }
+</script>
+<p id = "ejercicio2"></p>
+
+<hr/>
+
+<p>3º.- Realiza un ejercicio que inicialice un array de 150 elementos enteros al azar entre 0 y 100. A continuación pedirás al usuario un valor y buscarás dicho valor en el array. Si lo encuentras, debes indicar al usuario la posición del array en que se encuenta. En caso de que no encuentres el valor buscado, debes indicárselo también al usuario.</p>
+
+<p>Introduce un número: <input type="text" id="ejercicio3Num" value="0"/></p>
+<button onclick="JavaScript:ejercicio3();">Resolver</button>
+
+<script>
+    function ejercicio3() {
+        var longitud = 5;        
+        var array = creaArray (longitud, 0, 4);
+
+
+        var strSolucion = "Array: " + array + "<br>"+encontrarNum(array);
+        
+        document.getElementById("ejercicio3").innerHTML = strSolucion;
+    }
+
+    function encontrarNum(array){
+        var numero = parseInt(document.getElementById("ejercicio3Num").value);
+        for (var i = 0; i < array.length; i++) {
+            if (numero == array[i]){
+                return("Tu número "+ numero + " se ha encontrado en la posición: " + i)
+            }
+        }
+        return("Tu número "+ numero +" no se ha encontrado");
+
+    }
+</script>
+<p id = "ejercicio3"></p>
+
+<hr/>
+
+<h2>Bloque 2</h2>
+
+<p>4º.- Realiza un ejercicio en que inicialice un array de 5 elementos enteros al azar entre 0 y 100. Debes conseguir que se desplacen los números un lugar a su derecha, de manera que el desplazamiento sea circular, si un número sale por la derecha volverá a entrar por la izquierda. Ejemplo: 1 2 3 4 5 pasa a ser 5 1 2 3 4 que pasa a ser 4 5 1 2 3.</p>
+
+
+<button onclick="JavaScript:ejercicio4();">Resolver</button>
+
+<script>
+        function ejercicio4() {
+        var longitud = 5;        
+        var array = inicializarArray(longitud, 0, 5);
+
+        var strSolucion = "Array: " + array + "<br/>Array desplazado:"+ desplazamiento(array);
+        
+        document.getElementById("ejercicio4").innerHTML = strSolucion;
+    }
+
+    function desplazamiento(array){
+       
+        for (var i = array.length-1; i >= 0; i--) {
+            array[i] = array[i-1];
+        }
+        array[0] = 4;
+        return array;
+    }
+
+</script>
+<p id = "ejercicio4"></p>
+
+<hr/>
+
+<h2>Bloque 3</h2>
+
+<p>5º.- Realiza un ejercicio que inicialice un array de 150 elementos enteros al azar entre 0 y 1.000. Una vez que lo hayas conseguido debes realizar implementar el algoritmo de ordenación llamado "Burbuja", con el objetivo de ordenar el array completamente.</p>
+
+<button onclick="JavaScript:ejercicio5();">Resolver</button>
+
+<script>
+    function ejercicio5() {
+        var longitud = 5;        
+        var array = creaArray(longitud, 0, 5);
+
+        var strSolucion = "Array: " + array + "<br/>Array ordenado:"+ ordenarQuicksort(array, 0, (array.length-1));
+        
+        document.getElementById("ejercicio5").innerHTML = strSolucion;
+    }
+
+    function ordenarQuicksort(array, primero, ultimo) {
+        var i = primero;
+        var j = ultimo;
+        // salta a la mitad del array
+        var pivote = array[parseInt(i + j) / 2];
+
+        iteracionQS(i,j,pivote,primero,ultimo);
+    }
+        //iteracion del quicksort, suplanta el while y se llama recursivamente
+    function iteracionQS(i, j, pivote, primero, ultimo) {
+
+        while(array[i] < pivote) i++;
+        while(array[j > pivote]) j--;
+        //si el indice es i es menor o igual a j intercambiamos
+        if(i<=j){
+            var aux = array[j];
+            
+            array[j] = array[i];
+            array[i] = aux;
+        }
+        // incerementamos i y decrementamos j
+        i++; 
+        j--;
+
+        if (i < j ){
+            //pausa en medio de la funcion de medio segundo
+            setTimeout(function() {
+                iteracionQS(i,j,pivote,primero,ultimo);
+            }, 500);
+        }
+        else {
+            if (primero < j){
+                setTimeout(function () {
+                    ordenarQuicksort(primero, j);
+                    
+                },500);
+            }
+            if (ultimo > i){
+                setTimeout(function () {
+                    ordenarQuicksort(i, ultimo);
+                    
+                },500);
+            }
+        }
+        
+    }
+</script>
+
+<p id = "ejercicio5"></p>
+
+<hr/>
+
+</body>
+</html>

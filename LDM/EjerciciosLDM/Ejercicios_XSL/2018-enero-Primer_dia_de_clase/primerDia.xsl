@@ -40,14 +40,16 @@
 		 		<td><xsl:value-of select="@desc"/></td>
 		 		
 		 		<xsl:for-each select="hora">
-		 			<xsl:choose>
-		 				<xsl:when test="position() mod 2 = 1">
-		 					<td style="background:#c7d4f0"><xsl:value-of select="."/></td>
-		 				</xsl:when>
-		 				<xsl:otherwise>
-		 					<td style="background:#ffffff"><xsl:value-of select="."/></td>
-		 				</xsl:otherwise>
-		 			</xsl:choose>
+		 			<xsl:sort select="@orden" order="ascending"/>
+			 			<xsl:choose>
+			 				<xsl:when test="position() mod 2 = 1">
+			 					<td style="background:#c7d4f0"><xsl:value-of select="."/></td>
+			 				</xsl:when>
+			 				<xsl:otherwise>
+			 					<td style="background:#ffffff"><xsl:value-of select="."/></td>
+			 				</xsl:otherwise>
+			 			</xsl:choose>
+		 			
 		 		</xsl:for-each>
 		 	</tr>	
 		 	</xsl:for-each>
